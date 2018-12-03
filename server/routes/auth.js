@@ -1,14 +1,16 @@
-const express = require("express");
+const express = require('express');
 const passport = require('passport');
+const User = require('../models/User');
+
 const router = express.Router();
-const User = require("../models/User");
 
 // Bcrypt to encrypt passwords
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
+
 const bcryptSalt = 10;
 
 
-router.get("/login", (req, res, next) => {
+router.get('/login', (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });
 });
 
