@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const User = require('./User');
 
-const estabilishimentSchema = new Schema({
+const establishmentSchema = new Schema({
   owner: { type: Schema.Types.ObjectId, ref: 'User' },
   estabilishimentName: String,
   adress: String,
@@ -17,5 +17,5 @@ const estabilishimentSchema = new Schema({
   timestamps: true
 });
 
-const Estabilishiment = mongoose.model('Establishment', estabilishimentSchema);
-module.exports = Estabilishiment;
+const Establishment = mongoose.model('Establishment', establishmentSchema);
+module.exports = Establishment;
