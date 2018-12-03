@@ -18,7 +18,7 @@ router.get('/home', (req, res) => {
   if (isLogged(req)) {
     res.render('home');
   } else {
-    res.render('index', {err: 'Please login.'});
+    res.render('index', { err: 'Please login.' });
   }
 });
 
