@@ -9,15 +9,7 @@ const bcrypt = require('bcrypt');
 
 const bcryptSalt = 10;
 
-
-// router.get('/login', (req, res, next) => {
-//   if (req.user) {
-//     res.status(200).json(req.user);
-//   }
-//   res.status(400).json({ message: 'User not logged in' });
-// });
-
-router.post('/login', passport.authenticate('local'), function(req, res) {
+router.post('/login', passport.authenticate('local'), (req, res) => {
   res.status(200).json(req.user);
 });
 
