@@ -10,32 +10,27 @@ const bcrypt = require('bcrypt');
 const bcryptSalt = 10;
 
 
-router.get('/login', (req, res, next) => {
-  res.render('auth/login', { 'message': req.flash('error') });
-});
+// router.get('/login', (req, res, next) => {
+//   if (req.user) {
+//     res.status(200).json(req.user);
+//   }
+//   res.status(400).json({ message: 'User not logged in' });
+// });
 
-router.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/auth/login',
-  failureFlash: true,
-  passReqToCallback: true
-}));
-
-router.get('/signup', (req, res, next) => {
-  res.render('auth/signup');
+router.post('/login', passport.authenticate('local'), function(req, res) {
+  res.status(200).json(req.user);
 });
 
 router.post('/signup', (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
+  const { username, password } = req.body;
   if (username === '' || password === '') {
-    res.render('auth/signup', { message: 'Indicate username and password' });
+    res.status(400).json({ message: 'Indicate username and password' });
     return;
   }
 
   User.findOne({ username }, 'username', (err, user) => {
     if (user !== null) {
-      res.render('auth/signup', { message: 'The username already exists' });
+      res.status(400).json({ message: 'The username already exists' });
       return;
     }
 
@@ -48,18 +43,18 @@ router.post('/signup', (req, res, next) => {
     });
 
     newUser.save()
-      .then(() => {
-        res.redirect('/');
+      .then((user) => {
+        res.status(200).json(user);
       })
       .catch((err) => {
-        res.render('auth/signup', { message: 'Something went wrong' });
+        res.status(400).json(err);
       });
   });
 });
 
 router.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('/');
+  res.status(200).json(req.user);
 });
 
 module.exports = router;
