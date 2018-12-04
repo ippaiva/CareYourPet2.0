@@ -6,9 +6,9 @@ const router = express.Router();
 const Establishment = require('../models/Establishment');
 
 // POST route => to create a new establishment
-router.post('../models/Establishment.js', (req, res, next) => {
+router.post('/create', (req, res, next) => {
   Establishment.create({
-    owner: req.user._id,
+    owner: req.body.owner, // req.user.id apos login esta ok.
     estabilishimentName: req.body.estabilishimentName,
     adress: req.body.adress,
     zipCode: req.body.zipCode,
@@ -26,12 +26,28 @@ router.post('../models/Establishment.js', (req, res, next) => {
 });
 
 // GET route => to get a specific establishment/detailed view
-router.get('/establishment/:id', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    res.status(400).json({
+      message: 'Specified id is not valid'
+    });
+    return;
+  }
 
+  Establishment.findById(req.params.id, req.body)
+    .then(() => {
+      console.log('GET');
+      res.json({
+        message:  `Establishment with ${req.params.id} is here.`
+      });
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
 // PUT route => to update a specific establishment
-router.put('establishment/:id', (req, res, next) => {
+router.put('/:id', (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({
       message: 'Specified id is not valid'
@@ -51,7 +67,7 @@ router.put('establishment/:id', (req, res, next) => {
 });
 
 // DELETE route => to delete a specific establishment
-router.delete('/establishment/:id', (req, res, next) => {
+router.delete('/:id', (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({
       message: 'Specified id is not valid'
