@@ -39,7 +39,7 @@ app.use(cookieParser());
 app.use(require('node-sass-middleware')({
   src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
-  sourceMap: true
+  sourceMap: true,
 }));
 
 
@@ -59,8 +59,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
-
+app.locals.title = 'Care for Your Pet!';
 
 // Enable authentication using session + passport
 app.use(session({
