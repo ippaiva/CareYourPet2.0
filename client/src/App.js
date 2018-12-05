@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Bulma from 'bulma';
-
 import AuthService from './components/auth/auth-service';
 import EstablishmentsList from './components/establishments/EstablishmentsList';
 import AddEstablishment from './components/establishments/AddEstablishment';
@@ -10,6 +9,7 @@ import Navbar from './components/navbar/Navbar'
 import Signup from './components/auth/Signup'
 import Login from './components/auth/Login'
 import ProtectedRoute from './components/auth/protected-route';
+import 'bulma/css/bulma.css';
 
 
 class App extends Component {

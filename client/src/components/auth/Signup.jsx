@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import AuthService from './auth-service';
 import { Link } from 'react-router-dom';
+import FormField from '../forms/FormField';
 
 
 class Signup extends Component {
@@ -27,8 +28,8 @@ class Signup extends Component {
     this.service.signup(Username, Password, Name, LastName, Email, Phone, ZipCode, Address)
     .then( response => {
         this.setState({
-            username: "", 
-            password: "",
+            Username: "", 
+            Password: "",
         });
          this.props.getUser(response)
     })
@@ -45,13 +46,15 @@ class Signup extends Component {
       <div>
       <form onSubmit={this.handleFormSubmit}>
         <label>Username:</label>
-        <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/>
+        <input type="text" name="username" value={this.state.Username} onChange={ e => this.handleChange(e)}/>
         
         <label>Password:</label>
         <textarea name="password" value={this.state.password} onChange={ e => this.handleChange(e)} />
         
         <input type="submit" value="Signup" />
       </form>
+      {/* <FormField label="Name" type="text" placeholder="e.g Alex Smith" />
+      <FormField label="Email" type="email" placeholder="e.g. alexsmith@gmail.com" /> */}
 
       <p>Already have account? 
           <Link to={"/"}> Login</Link>
