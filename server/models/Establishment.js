@@ -6,11 +6,11 @@ const User = require('./User');
 
 const establishmentSchema = new Schema({
   owner: { type: Schema.Types.ObjectId, ref: 'User' },
-  estabilishimentName: String,
+  establishmentName: String,
   adress: String,
   zipCode: Number,
   phone: Number,
-  type: { type: [String], enum: ['PetShop', 'Hotel', 'Veterinário', 'Outros'] },
+  type: { type: String, enum: ['PetShop', 'Hotel', 'Veterinário', 'Outros'] },
   services: [String],
   workingHours: [{ day: String, hours: [String] }]
 },
