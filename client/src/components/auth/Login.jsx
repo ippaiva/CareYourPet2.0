@@ -1,16 +1,13 @@
-// EstablishmentsList
+// auth/Login.js
 import React, { Component } from 'react';
-import axios from 'axios';
+import AuthService from './auth-service';
 import { Link } from 'react-router-dom';
 
-import AddEstablishment from './AddEstablishment';
-
-
-class EstablishmentsList extends Component {
+class Login extends Component {
   constructor(props){
     super(props);
     this.state = { username: '', password: '' };
-   // this.service = new AuthService();
+    this.service = new AuthService();
   }
 
   handleFormSubmit = (event) => {
@@ -32,16 +29,21 @@ class EstablishmentsList extends Component {
     
   render(){
     return(
-      <div className="establishmentList">
+      <div>
         <form onSubmit={this.handleFormSubmit}>
           <label>Username:</label>
-          <input className="input is-rounded" type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/>
+          <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/>
           <label>Password:</label>
           <textarea name="password" value={this.state.password} onChange={ e => this.handleChange(e)} />
+        
+          <input type="submit" value="Login" />
         </form>
+        <p>Don't have account? 
+            <Link to={"/signup"}> Signup</Link>
+        </p>
       </div>
     )
   }
 }
 
-export default EstablishmentsList;
+export default Login;
