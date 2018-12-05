@@ -5,6 +5,7 @@ import AuthService from './components/auth/auth-service';
 import EstablishmentsList from './components/establishments/EstablishmentsList';
 import AddEstablishment from './components/establishments/AddEstablishment';
 
+
 class App extends Component {
   render() {
     return (
