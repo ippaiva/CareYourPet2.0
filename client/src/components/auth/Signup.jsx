@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import AuthService from './auth-service';
 import { Link } from 'react-router-dom';
-import FormField from '../forms/FormField';
+import InputText from '../forms/InputText';
 
 
 class Signup extends Component {
@@ -16,16 +16,16 @@ class Signup extends Component {
   // handleChange() and handleSubmit() will be added here
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const Username = this.state.username;
-    const Password = this.state.password;
-    const Name = this.state.name;
-    const LastName = this.state.lastName;
-    const Email = this.state.email;
-    const Phone = this.state.phone;
-    const ZipCode = this.state.zipcode;
-    const Address = this.state.address;
+    const username = this.state.username;
+    const password = this.state.password;
+    const name = this.state.name;
+    const lastName = this.state.lastName;
+    const email = this.state.email;
+    const phone = this.state.phone;
+    const zipcode = this.state.zipcode;
+    const address = this.state.address;
   
-    this.service.signup(Username, Password, Name, LastName, Email, Phone, ZipCode, Address)
+    this.service.signup(username, password, name, lastName, email, phone, zipcode, address)
     .then( response => {
         this.setState({
             Username: "", 
@@ -38,6 +38,7 @@ class Signup extends Component {
   
   handleChange = (event) => {  
     const {name, value} = event.target;
+    console.log('handleChange', event.target)
     this.setState({[name]: value});
   }
 
@@ -50,17 +51,11 @@ class Signup extends Component {
     return(
       <div>
       <form onSubmit={this.handleFormSubmit}>
-        <label>Username:</label>
-        <input type="text" name="username" value={this.state.Username} onChange={ e => this.handleChange(e)}/>
-        
-        <label>Password:</label>
-        <textarea name="password" value={this.state.password} onChange={ e => this.handleChange(e)} />
-        
+        <InputText label="Name" fieldName="name" placeHolder="Digite um nome" value={this.state.name} handleChange={this.handleChange} />
+
+        <InputText label="Password" fieldName="password" placeHolder="Digite uma senha" value={this.state.password} handleChange={this.handleChange} />
         <input type="submit" value="Signup" />
       </form>
-      {/* <FormField label="Name" type="text" placeholder="e.g Alex Smith" />
-      <FormField label="Email" type="email" placeholder="e.g. alexsmith@gmail.com" /> */}
-
       <p>Already have account? 
           <Link to={"/"}> Login</Link>
       </p>
