@@ -3,16 +3,14 @@ import React, { Component } from 'react';
 class InputText extends Component {
   render() {
     return(
-      <div class="field">
-        <label class="label">{this.props.label}</label>
-        <div class="control">
-          <input class="input input is-rounded" name={this.props.fieldName} type="text" value={this.props.value} onChange={e => this.props.handleChange(e)} placeholder={this.props.placeHolder} />
+      <div className="field">
+        <label className="label">{this.props.label}</label>
+        <div className="control">
+          <input className="input is-rounded" name={this.props.fieldName} type="text" value={this.props.value} onChange={e => this.props.handleChange(e)} placeholder={this.props.placeHolder} />
         </div>
       </div>
     )
   }
 }
-
-
 
  export default InputText;
