@@ -6,6 +6,7 @@ import EstablishmentsList from './components/establishments/EstablishmentsList';
 import AddEstablishment from './components/establishments/AddEstablishment';
 import Navbar from './components/navbar/Navbar'
 import Bulma from 'bulma';
+import ProtectedRoute from './components/auth/protected-route';
 
 class App extends Component {
   constructor(props) {
@@ -40,16 +41,22 @@ class App extends Component {
     {this.fetchUser()}
     if(this.state.loggedInUser){
       return (
-        <div>
-          <Navbar />
-          <AddEstablishment />
+        <div className="App">
+          <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
+          <Switch>
+            <ProtectedRoute user={this.state.loggedInUser} path='/establishments' component={EstablishmentsList} />
+            <ProtectedRoute user={this.state.loggedInUser} path='/establishments/add' component={AddEstablishment} />
+          </Switch>
         </div>
       );
     } else {
       return (
         <div>
           <Navbar />
-          <EstablishmentsList />
+            <Switch>
+              <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
+              <Route exact path='/' render={() => <Login getUser={this.getTheUser}/>}/>
+            </Switch>
        </div>
       )
     }
