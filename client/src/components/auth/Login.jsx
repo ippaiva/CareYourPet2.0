@@ -39,7 +39,7 @@ class Login extends Component {
           <input type="submit" value="Login" />
         </form>
         <p>Don't have account? 
-            <Link to={"/signup"}> Signup</Link>
+            <Link to={"/Signup"}> Signup</Link>
         </p>
       </div>
     )

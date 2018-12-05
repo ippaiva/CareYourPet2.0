@@ -6,12 +6,10 @@ import EstablishmentsList from './components/establishments/EstablishmentsList';
 import AddEstablishment from './components/establishments/AddEstablishment';
 import Navbar from './components/navbar/Navbar'
 import Bulma from 'bulma';
-<<<<<<< HEAD
+import Signup from './components/auth/Signup';
+import Login from './components/auth/Login';
 import ProtectedRoute from './components/auth/protected-route';
-=======
-import Signup from './components/auth/Signup'
 
->>>>>>> 26c427cc83b907c9d4db061f6d58b657ca64a29a
 
 class App extends Component {
   constructor(props) {

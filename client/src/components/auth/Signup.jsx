@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import AuthService from './auth-service';
 import { Link } from 'react-router-dom';
 
+
 class Signup extends Component {
   constructor(props){
     super(props);
@@ -14,16 +15,22 @@ class Signup extends Component {
   // handleChange() and handleSubmit() will be added here
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const username = this.state.username;
-    const password = this.state.password;
+    const Username = this.state.username;
+    const Password = this.state.password;
+    const Name = this.state.name;
+    const LastName = this.state.lastName;
+    const Email = this.state.email;
+    const Phone = this.state.phone;
+    const ZipCode = this.state.zipcode;
+    const Address = this.state.address;
   
-    this.service.signup(username, password)
+    this.service.signup(Username, Password, Name, LastName, Email, Phone, ZipCode, Address)
     .then( response => {
         this.setState({
             username: "", 
             password: "",
         });
-        // this.props.getUser(response)
+         this.props.getUser(response)
     })
     .catch( error => console.log(error) )
   }
