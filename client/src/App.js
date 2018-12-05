@@ -10,6 +10,7 @@ import Navbar from './components/navbar/Navbar'
 import Signup from './components/auth/Signup'
 import Login from './components/auth/Login'
 import ProtectedRoute from './components/auth/protected-route';
+import NavbarNotLoggedIn from './components/navbar/NavbarNotLoggedIn'
 
 
 class App extends Component {
@@ -58,7 +59,7 @@ class App extends Component {
     } else {
       return (
         <div className="App">
-          <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
+          <NavbarNotLoggedIn userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
           <BrowserRouter>
           <Switch>
             <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>

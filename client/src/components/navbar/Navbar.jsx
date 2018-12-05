@@ -13,7 +13,7 @@ class Navbar extends Component {
     return (
       <div>
         <aside class="menu">
-          <img src="img/logo.png" alt="logo"></img>
+          <img src="img/logo.svg" alt="logo"></img>
           <p class="menu-label">General</p>
           <ul class="menu-list">
             <li><a>Dashboard</a></li>
