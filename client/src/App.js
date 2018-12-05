@@ -6,6 +6,7 @@ import EstablishmentsList from './components/establishments/EstablishmentsList';
 import AddEstablishment from './components/establishments/AddEstablishment';
 import Navbar from './components/navbar/Navbar'
 import Bulma from 'bulma';
+import Signup from './components/auth/Signup'
 
 
 class App extends Component {
@@ -51,6 +52,8 @@ class App extends Component {
         <div>
           <Navbar />
           <EstablishmentsList />
+          <AddEstablishment />
+          <Signup/>
        </div>
       )
     }

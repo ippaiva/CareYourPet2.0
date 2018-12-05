@@ -10,10 +10,11 @@ const userSchema = new Schema({
   email: String,
   phone: Number,
   zipcode: Number,
-  pet: [{ type: Schema.Types.ObjectId, ref: 'Pet' }],
+  address: String,
+  pet: [{ type: Schema.Types.ObjectId, ref: 'Pet' }]
 },
 {
-  timestamps: true,
+  timestamps: true
 });
 
 const User = mongoose.model('User', userSchema);
