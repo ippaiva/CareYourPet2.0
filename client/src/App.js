@@ -4,6 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 import AuthService from './components/auth/auth-service';
 import EstablishmentsList from './components/establishments/EstablishmentsList';
 import AddEstablishment from './components/establishments/AddEstablishment';
+import Navbar from './components/navbar/Navbar'
+import Bulma from 'bulma';
 
 class App extends Component {
   constructor(props) {
@@ -28,15 +30,29 @@ class App extends Component {
     }
   }
 
-  render() {
-    return (
-      <div className="App">
+  getUser= (userObj) => {
+    this.setState({
+      loggedInUser: userObj
+    })
+  }
 
-        
-        <AddEstablishment/>
-       
-      </div>
-    );
+  render() {
+    {this.fetchUser()}
+    if(this.state.loggedInUser){
+      return (
+        <div>
+          <Navbar />
+          <AddEstablishment />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Navbar />
+          <EstablishmentsList />
+       </div>
+      )
+    }
   }
 }
 
