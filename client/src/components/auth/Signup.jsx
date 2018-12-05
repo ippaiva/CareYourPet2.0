@@ -33,6 +33,11 @@ class Signup extends Component {
     this.setState({[name]: value});
   }
 
+  handleFormSubmit = (event) => {
+    console.log('The user was submitted: ' + this.state.username);
+    event.preventDefault();
+  }
+
   render(){
     return(
       <div>

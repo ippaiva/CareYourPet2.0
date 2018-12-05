@@ -36,7 +36,7 @@ class Login extends Component {
           <label>Password:</label>
           <textarea name="password" value={this.state.password} onChange={ e => this.handleChange(e)} />
         
-          <input type="submit" value="Login" />
+          <input type="submit" value="Login" onChange={ e => this.handleChange(e)} />
         </form>
         <p>Don't have account? 
             <Link to={"/signup"}> Signup</Link>
