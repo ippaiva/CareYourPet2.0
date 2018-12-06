@@ -1,18 +1,20 @@
 const express = require('express');
 const passport = require('passport');
-const User = require('../models/User');
 
 const router = express.Router();
 
 // Bcrypt to encrypt passwords
 const bcrypt = require('bcrypt');
-
 const bcryptSalt = 10;
 
+const User = require('../models/User');
+
+// LOGIN
 router.post('/login', passport.authenticate('local'), (req, res) => {
   res.status(200).json(req.user);
 });
 
+// SIGNUP
 router.post('/signup', (req, res, next) => {
   const { name, lastName, username, email, address, zipcode, phone, password } = req.body;
   if (name === '' || lastName === '' || username === '' || email === '' || address === '' || zipcode === '' || phone === '' || password === '') {
@@ -51,6 +53,7 @@ router.post('/signup', (req, res, next) => {
   });
 });
 
+// LOGOUT
 router.get('/logout', (req, res) => {
   req.logout();
   res.status(200).json(req.user);
