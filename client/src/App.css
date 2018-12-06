@@ -30,3 +30,11 @@
     transform: rotate(360deg);
   }
 }
+
+.homeDes {
+  width: 30%;
+}
+
+.homeDes2 {
+  background-image: url("/img/image.jpg");
+}
