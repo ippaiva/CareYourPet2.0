@@ -13,6 +13,4 @@ class InputText extends Component {
   }
 }
 
-
-
  export default InputText;
