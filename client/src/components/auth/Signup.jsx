@@ -32,6 +32,7 @@ class Signup extends Component {
             Password: "",
         });
          this.props.getUser(response)
+         console.log('The user was submitted: ' + this.state.username);
     })
     .catch( error => console.log(error) )
   }
@@ -40,11 +41,6 @@ class Signup extends Component {
     const {name, value} = event.target;
     console.log('handleChange', event.target)
     this.setState({[name]: value});
-  }
-
-  handleFormSubmit = (event) => {
-    console.log('The user was submitted: ' + this.state.username);
-    event.preventDefault();
   }
 
   render(){
@@ -63,11 +59,11 @@ class Signup extends Component {
 
         <InputText label="ZipCode:" fieldName="zipcode" placeHolder="07114030" value={this.state.zipcode} handleChange={this.handleChange} />
 
-        <InputText label="Phone Number:" fieldName="phone" placeHolder="199998000342" value={this.state.zipcode} handleChange={this.handleChange} />
+        <InputText label="Phone Number:" fieldName="phone" placeHolder="199998000342" value={this.state.phone} handleChange={this.handleChange} />
 
         <InputText label="Password:" fieldName="password" placeHolder="Digite uma senha" value={this.state.password} handleChange={this.handleChange} />
         
-        <button class="button is-primary" type="submit" value="Signup">Signup</button>
+        <button className="button is-primary" type="submit" value="Signup">Signup</button>
       </form>
       <p>Already have account? 
           <Link to={"/"}> Login</Link>

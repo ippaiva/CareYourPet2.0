@@ -14,8 +14,8 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
 });
 
 router.post('/signup', (req, res, next) => {
-  const { username, password } = req.body;
-  if (username === '' || password === '') {
+  const { name, lastName, username, email, address, zipcode, phone, password } = req.body;
+  if (name === '' || lastName === '' || username === '' || email === '' || address === '' || zipcode === '' || phone === '' || password === '') {
     res.status(400).json({ message: 'Indicate username and password' });
     return;
   }
@@ -30,8 +30,15 @@ router.post('/signup', (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
+      name,
+      lastName,
       username,
+      email,
+      address,
+      zipcode,
+      phone,
       password: hashPass,
+      pictureURL: req.file.url
     });
 
     newUser.save()
