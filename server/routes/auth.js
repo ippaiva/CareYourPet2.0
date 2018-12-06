@@ -5,6 +5,7 @@ const router = express.Router();
 
 // Bcrypt to encrypt passwords
 const bcrypt = require('bcrypt');
+
 const bcryptSalt = 10;
 
 const User = require('../models/User');
@@ -18,7 +19,7 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
 router.post('/signup', (req, res, next) => {
   const { name, lastName, username, email, address, zipcode, phone, password } = req.body;
   if (name === '' || lastName === '' || username === '' || email === '' || address === '' || zipcode === '' || phone === '' || password === '') {
-    res.status(400).json({ message: 'Indicate username and password' });
+    res.status(400).json({ message: 'aphahode' });
     return;
   }
 
@@ -39,8 +40,8 @@ router.post('/signup', (req, res, next) => {
       address,
       zipcode,
       phone,
-      password: hashPass,
-      pictureURL: req.file.url
+      password: hashPass
+      // pictureURL: req.file.url
     });
 
     newUser.save()
@@ -51,6 +52,15 @@ router.post('/signup', (req, res, next) => {
         res.status(400).json(err);
       });
   });
+});
+
+// LOGGEDIN
+router.get('/loggedin', (req, res, next) => {
+  if (req.user) {
+    res.status(200).json(req.user);
+  } else {
+    res.status(400).json({ message: 'The user is not logged' });
+  }
 });
 
 // LOGOUT
