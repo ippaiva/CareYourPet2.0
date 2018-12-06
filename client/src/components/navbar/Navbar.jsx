@@ -12,10 +12,10 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <aside class="menu">
+        <aside className="menu">
           <img src="img/logo.svg" alt="logo"></img>
-          <p class="menu-label">General</p>
-          <ul class="menu-list">
+          <p className="menu-label">General</p>
+          <ul className="menu-list">
             <li><a>Dashboard</a></li>
             <li><a>Customers</a></li>
           </ul>
