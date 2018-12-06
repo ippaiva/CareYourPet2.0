@@ -38,7 +38,7 @@ app.use(session({
   secret: 'irongenerator', // Colocar no .env
   resave: true,
   saveUninitialized: true,
-  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 require('./passport')(app);
 

@@ -7,17 +7,19 @@ const Establishment = require('../models/Establishment');
 
 // POST route => to create a new establishment
 router.post('/create', (req, res, next) => {
+  console.log(req.body);
   Establishment.create({
-    owner: req.body.owner, // req.user.id apos login esta ok.
-    estabilishimentName: req.body.estabilishimentName,
-    adress: req.body.adress,
-    zipCode: req.body.zipCode,
-    phone: req.body.phone,
-    type: req.body.type,
-    services: req.body.services,
-    workingHours: req.body.workingHours
+    owner: req.user.id,
+    establishmentName: req.body.EstablishmentName,
+    address: req.body.Address,
+    zipCode: req.body.ZipCode,
+    phone: req.body.Phone,
+    type: req.body.Type,
+    services: req.body.Services,
+    workingHour: req.body.WorkingHour
   })
     .then((response) => {
+      console.log(response);
       res.json(response);
     })
     .catch((err) => {
@@ -38,7 +40,7 @@ router.get('/:id', (req, res, next) => {
     .then(() => {
       console.log('GET');
       res.json({
-        message:  `Establishment with ${req.params.id} is here.`
+        message: `Establishment with ${req.params.id} is here.`
       });
     })
     .catch((err) => {

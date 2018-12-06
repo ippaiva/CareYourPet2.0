@@ -24,7 +24,7 @@ class App extends Component {
       this.service.loggedin()
       .then(response => {
         this.setState({
-          loggedInUser: 'response'
+          loggedInUser: response
         }, () => { console.log(this.state) });
       })
       .catch( err => {
@@ -44,13 +44,14 @@ class App extends Component {
   render() {
     this.fetchUser()
     if(this.state.loggedInUser){
+      console.log('usuario logado')
       return (
         <div className="App columns">
           <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
           <BrowserRouter>
             <Switch>
-              <ProtectedRoute user={this.state.loggedInUser} path='/establishments' component={EstablishmentsList} />
               <ProtectedRoute user={this.state.loggedInUser} path='/establishments/add' component={AddEstablishment} />
+              <ProtectedRoute user={this.state.loggedInUser} path='/establishments' component={EstablishmentsList} />
             </Switch>
           </BrowserRouter>
         </div>

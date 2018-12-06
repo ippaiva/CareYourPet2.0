@@ -9,7 +9,7 @@ class AddEstablishment extends Component {
    
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const Establishment = this.state.establishmentName;
+    const EstablishmentName = this.state.establishmentName;
     const Address = this.state.address;
     const ZipCode = this.state.zipCode;
     const Phone = this.state.phone;
@@ -17,7 +17,7 @@ class AddEstablishment extends Component {
     const Services = this.state.services;
     const WorkingHour = this.state.workingHours;
   
-    axios.post("http://localhost:5000/api/create", { Establishment, Address, ZipCode, Phone, Type, Services, WorkingHour }, {withCredentials:true})
+    axios.post("http://localhost:5000/establishments/create", { EstablishmentName, Address, ZipCode, Phone, Type, Services, WorkingHour }, {withCredentials:true})
     .then( () => {
         this.props.getData();
         this.setState({ establishmentName: "", address: "", zipCode: "", phone: "", type: "", services: "", workingHours: "" });
@@ -26,7 +26,7 @@ class AddEstablishment extends Component {
   }
 
   handleChange = (event) => {
-    console.log('mateus', event.target.name)  
+
       const {name, value} = event.target;
     
       this.setState({[name]: value});
@@ -34,6 +34,7 @@ class AddEstablishment extends Component {
 
   render(){
     return(
+  
       <div className="add-establishment">
         <div>
           <form onSubmit={this.handleFormSubmit}>
@@ -42,7 +43,7 @@ class AddEstablishment extends Component {
             <label>Address:</label>
             <input className="input is-rounded" name="address" value={this.state.address} onChange={ e => this.handleChange(e)} />
             <label>ZipCode: </label>
-            <input className="input is-rounded" name="zipcode" value={this.state.zipCode} onChange={ e => this.handleChange(e)} />
+            <input className="input is-rounded" name="zipcode" value={this.state.ZipCode} onChange={ e => this.handleChange(e)} />
             <label>Phone: </label>
             <input className="input is-rounded" name="phone" value={this.state.phone} onChange={ e => this.handleChange(e)} />
             <label>Type: </label>
@@ -51,7 +52,7 @@ class AddEstablishment extends Component {
             <input className="input is-rounded" name="services" value={this.state.services} onChange={ e => this.handleChange(e)} />
             <label>Working Hour: </label>
             <input className="input is-rounded"  name="workingHours" value={this.state.workingHours} onChange={ e => this.handleChange(e)} />
-            <input className="input is-rounded" type="submit" value="Submit" />
+            <button className="button is-primary" type="submit" value="Submit">Gravar</button>
           </form>
         </div>
       </div>
