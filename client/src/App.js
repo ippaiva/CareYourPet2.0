@@ -58,7 +58,6 @@ class App extends Component {
       return (
         <div className="App">
           <NavbarNotLoggedIn userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
-          <HomeDes />
           <BrowserRouter>
           <Switch>
             <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
