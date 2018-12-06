@@ -37,10 +37,11 @@ class Login extends Component {
 
         <InputText label="Password:" fieldName="password" placeHolder="Digite uma senha" value={this.state.password} handleChange={this.handleChange} />
 
-        <button class="button is-primary" type="submit" value="Login">Login</button>
+        <button className="button is-primary" type="submit" value="Login">Login</button>
 
         </form>
-
+        <span>Forgot your password?</span>
+        
         <p>Don't have account? 
             <Link to={"/Signup"}> Signup</Link>
         </p>
