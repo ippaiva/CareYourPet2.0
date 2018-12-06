@@ -16,15 +16,16 @@ class App extends Component {
     super(props)
     this.state = { loggedInUser: null };
     this.service = new AuthService();
+    this.fetchUser = this.fetchUser.bind(this);
   }
 
   fetchUser() {
     if (this.state.loggedInUser === null) {
       this.service.loggedin()
-      .then(response =>{
+      .then(response => {
         this.setState({
-          loggedInUser: response
-        })
+          loggedInUser: 'response'
+        }, () => { console.log(this.state) });
       })
       .catch( err => {
         this.setState({
@@ -45,12 +46,12 @@ class App extends Component {
     if(this.state.loggedInUser){
       return (
         <div className="App columns">
-        <BrowserRouter>
           <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
-          <Switch>
-            <ProtectedRoute user={this.state.loggedInUser} path='/establishments' component={EstablishmentsList} />
-            <ProtectedRoute user={this.state.loggedInUser} path='/establishments/add' component={AddEstablishment} />
-          </Switch>
+          <BrowserRouter>
+            <Switch>
+              <ProtectedRoute user={this.state.loggedInUser} path='/establishments' component={EstablishmentsList} />
+              <ProtectedRoute user={this.state.loggedInUser} path='/establishments/add' component={AddEstablishment} />
+            </Switch>
           </BrowserRouter>
         </div>
       );
@@ -60,10 +61,10 @@ class App extends Component {
           <NavbarNotLoggedIn userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
           <HomeNoUser />
           <BrowserRouter>
-          <Switch>
-            <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
-            <Route exact path='/' render={() => <Login getUser={this.getTheUser}/>}/>
-          </Switch>
+            <Switch>
+              <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
+              <Route exact path='/' render={() => <Login getUser={this.getTheUser}/>}/>
+            </Switch>
           </BrowserRouter>
         </div>
       )

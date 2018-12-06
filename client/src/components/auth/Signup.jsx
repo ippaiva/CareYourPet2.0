@@ -31,8 +31,6 @@ class Signup extends Component {
             Username: "", 
             Password: "",
         });
-         this.props.getUser(response)
-         console.log('The user was submitted: ' + this.state.username);
     })
     .catch( error => console.log(error) )
   }
@@ -49,7 +47,7 @@ class Signup extends Component {
       <form onSubmit={this.handleFormSubmit}>
         <InputText label="Name:" fieldName="name" placeHolder="Digite seu nome" value={this.state.name} handleChange={this.handleChange} />
 
-        <InputText label="Last Name:" fieldName="lastname" placeHolder="Digite seu sobrenome" value={this.state.lastname} handleChange={this.handleChange} />
+        <InputText label="Last Name:" fieldName="lastName" placeHolder="Digite seu sobrenome" value={this.state.lastName} handleChange={this.handleChange} />
       
         <InputText label="User Name:" fieldName="username" placeHolder="Digite um username" value={this.state.username} handleChange={this.handleChange} />
 
