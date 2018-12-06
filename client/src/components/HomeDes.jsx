@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Navbar from './navbar/Navbar';
 
-class HomeDes extends Component {
+class HomeNoUser extends Component {
   constructor(props){
     super(props);
     this.state = { username: '', password: '' };
@@ -12,16 +12,20 @@ class HomeDes extends Component {
   render () {
     return (
       <div>
-        <div className="homeDes">
-          <Navbar />
-
+        <div className="">
+          <div>
+            <h1>Care For Your Pet</h1>
+            <p>
+              A place where animal lovers become a community.
+            </p>
+          </div>
         </div>
-        <div className="homeDes2">
-          <h1>Hello how are you?</h1>
+        <div className="">
+          <h1></h1>
         </div>
       </div>
     )
   }
 }
 
-  export default HomeDes;
+  export default HomeNoUser;

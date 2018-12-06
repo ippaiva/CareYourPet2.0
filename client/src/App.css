@@ -1,5 +1,12 @@
+* {
+  border: 1px solid red;
+}
+
 .App {
   text-align: center;
+  background-image: url('/img/image.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .App-logo {
@@ -29,12 +36,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.homeDes {
-  width: 30%;
-}
-
-.homeDes2 {
-  background-image: url("/img/image.jpg");
 }

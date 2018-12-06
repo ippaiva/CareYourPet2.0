@@ -9,7 +9,7 @@ import Signup from './components/auth/Signup'
 import Login from './components/auth/Login'
 import ProtectedRoute from './components/auth/protected-route';
 import NavbarNotLoggedIn from './components/navbar/NavbarNotLoggedIn'
-import HomeDes from './components/HomeDes'
+import HomeNoUser from './components/HomeDes'
 
 class App extends Component {
   constructor(props) {
@@ -58,6 +58,7 @@ class App extends Component {
       return (
         <div className="App">
           <NavbarNotLoggedIn userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
+          <HomeNoUser />
           <BrowserRouter>
           <Switch>
             <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
