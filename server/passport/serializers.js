@@ -2,6 +2,7 @@ const passport = require('passport');
 const User = require('../models/User');
 
 passport.serializeUser((loggedInUser, cb) => {
+  // eslint-disable-next-line no-underscore-dangle
   cb(null, loggedInUser._id);
 });
 

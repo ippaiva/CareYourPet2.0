@@ -2,32 +2,28 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Navbar from './navbar/Navbar';
-import EstablishmentsList from './establishments/EstablishmentsList';
-import AddEstablishment from './establishments/AddEstablishment';
+import Login from './auth/Login';
+import Signup from './auth/Signup';
 
-class HomeUser extends Component {
+class HomeLog extends Component {
   constructor(props){
     super(props);
-    this.state = { username: '', password: '' };
+    this.state = {
+      username: '',
+      password: '',
+      isSignUp: false
+    };
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <div className="">
-          <div>
-            <h1>Care For Your Pet Logado</h1>
-            <p>
-              A place where animal lovers become a community.
-            </p>
-          </div>
-        </div>
-        <div className="">
-          <EstablishmentsList/>
-        </div>
+        <Navbar />
+        
       </div>
     )
   }
 }
 
-  export default HomeUser;
+
+  export default HomeLog;
