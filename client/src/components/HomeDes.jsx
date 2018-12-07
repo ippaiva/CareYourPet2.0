@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Login from './auth/Login';
 import Signup from './auth/Signup';
+import NavbarNotLoggedIn from './navbar/NavbarNotLoggedIn';
 
 class HomeNoUser extends Component {
   constructor(props){
@@ -27,6 +28,7 @@ class HomeNoUser extends Component {
     return (
       <div>
         <div className="">
+        <NavbarNotLoggedIn />
           <section className="hero is-primary is-medium">
             <div className="hero-body">
               <div className="container">
@@ -48,7 +50,7 @@ class HomeNoUser extends Component {
             </div>
             <div className="card-content">
               <div className="content">
-                A place where animal lovers become a community!
+                Be part of this growing community!
               </div>
             </div>
             {form}

@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   fetchUser() {
-    if (this.state.loggedInUser === null) {
+    if (this.state.loggedInUser === null) { 
       this.service.loggedin()
       .then(response => {
         this.setState({
@@ -40,12 +40,18 @@ class App extends Component {
     })
   }
 
+  logout = () => {
+    this.setState({
+      loggedinUser: null
+    })
+  }
+
   render() {
     this.fetchUser()
     if(this.state.loggedInUser){
       return (
         <div className="App">
-          <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
+          {/* <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} /> */}
           <BrowserRouter>
             <Switch>
               <ProtectedRoute user={this.state.loggedInUser} path='/' component={HomeLog} />
@@ -58,7 +64,7 @@ class App extends Component {
     } else {
       return (
         <div className="App">
-          <NavbarNotLoggedIn userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
+          {/* <NavbarNotLoggedIn userInSession={this.state.loggedInUser} getUser={this.getTheUser} /> */}
           <BrowserRouter>
             <Switch>
               <Route exact path='/' render={() => <HomeNoUser getUser={this.fetchUser}/>}/>

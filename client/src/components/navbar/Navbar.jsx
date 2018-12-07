@@ -8,6 +8,8 @@ class Navbar extends Component {
     this.service = new AuthService();
   }
 
+
+
   render() {
     return (
       <div>
@@ -18,7 +20,7 @@ class Navbar extends Component {
             <li><a href="#j">Meu Perfil</a></li>
             <li><a href="#y">Meus Estabelecimentos</a></li>
           </ul>
-          <button type="submit" name="logout"  >Log Out</button>
+          <button onClick= {() => {this.props.logout()}}type="submit" name="logout"  >Log Out</button>
         </aside>
       </div>
     );
