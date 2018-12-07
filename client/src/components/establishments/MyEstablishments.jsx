@@ -1,11 +1,13 @@
-// EstablishmentsList
+// Establishments
 import React, { Component } from 'react';
 
-class EstablishmentsList extends Component {
+import Navbar from './navbar/Navbar';
+
+
+class MyEstablishments extends Component {
   constructor(props){
     super(props);
     this.state = { username: '', password: '' };
-   // this.service = new AuthService();
   }
 
   handleFormSubmit = (event) => {
@@ -27,16 +29,11 @@ class EstablishmentsList extends Component {
     
   render(){
     return(
-      <div className="establishmentList">
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
-          <input className="input is-rounded" type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/>
-          <label>Password:</label>
-          <textarea name="password" value={this.state.password} onChange={ e => this.handleChange(e)} />
-        </form>
+      <div className="myestablishments">
+      <h1>Establishments</h1>
       </div>
     )
   }
 }
 
-export default EstablishmentsList;
+export default MyEstablishments;
