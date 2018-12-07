@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Navbar from './navbar/Navbar';
 
 class HomeLog extends Component {
@@ -13,13 +12,32 @@ class HomeLog extends Component {
 
   render() {
     return (
-      <div>
-        <Navbar />
-        <h1>ROMULOBICHAO</h1>
+      <div className="homeLog">
+        <div className="sidebar">
+          <Navbar />
+        </div>
+        <div>
+          <img src="/img/mountains.jpg" alt="loggedImage" height=""></img>
+          <input className="input" type="text" placeholder="Search"></input>
+        </div>
+        <div>
+        {/* <div className="hero">
+          <div className="card">
+            <figure className="image is-4by3">
+              <img src="img/home1.jpg" alt  ="Animals">
+              </img>
+            </figure>
+          </div>
+          <div className="card-content">
+            <div className="content">
+              Be part of this growing community!
+            </div>
+          </div>
+        </div> */}
+      </div>
       </div>
     )
   }
 }
 
-
-  export default HomeLog;
+export default HomeLog;

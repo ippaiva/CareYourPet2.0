@@ -29,7 +29,7 @@ class HomeNoUser extends Component {
       <div>
         <div className="">
         <NavbarNotLoggedIn />
-          <section className="hero is-primary is-medium">
+          <section className="hero is-info is-medium">
             <div className="hero-body">
               <div className="container">
                 <h1 className="title">
@@ -44,7 +44,7 @@ class HomeNoUser extends Component {
           <div className="outterDiv hero">
             <div className="card">
               <figure className="image is-4by3">
-                <img src="img/home1.jpg" alt="Animals">
+                <img src="img/retriever.jpg" alt="Golden Retriever with Hooman">
                 </img>
               </figure>
             </div>

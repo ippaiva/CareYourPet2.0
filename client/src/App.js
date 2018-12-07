@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AuthService from './components/auth/auth-service';
-import EstablishmentsList from './components/establishments/EstablishmentsList';
-import AddEstablishment from './components/establishments/AddEstablishment';
 import ProtectedRoute from './components/auth/protected-route';
 import HomeNoUser from './components/HomeDes'
 import HomeLog from './components/HomeLog'
+import Profile from './components/user/Profile'
+import Pets from './components/user/Pets'
+import MyEstablishments from './components/establishments/MyEstablishments'
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +15,6 @@ class App extends Component {
     this.state = { loggedInUser: null };
     this.service = new AuthService();
     this.fetchUser = this.fetchUser.bind(this);
-    this.logout = this.logout.bind(this);
   }
 
   fetchUser() {
@@ -44,25 +44,19 @@ class App extends Component {
     if(this.state.loggedInUser){
       return (
         <div className="App">
-          {/* <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} /> */}
           <BrowserRouter>
             <Switch>
               <ProtectedRoute user={this.state.loggedInUser} path='/' component={HomeLog} />
-              <ProtectedRoute user={this.state.loggedInUser} path='/establishments/add' component={AddEstablishment} />
-              <ProtectedRoute user={this.state.loggedInUser} path='/establishments' component={EstablishmentsList} />
-              <ProtectedRoute user={this.state.loggedInUser} path='/home' component={HomeLog} />
               <ProtectedRoute user={this.state.loggedInUser} path='./components/user/Profile.jsx' component={Profile} />
               <ProtectedRoute user={this.state.loggedInUser} path='./components/user/Pets.jsx' component={Pets} />
               <ProtectedRoute user={this.state.loggedInUser} path='./components/establishments/MyEstablishments.jsx' component={MyEstablishments} />
             </Switch>
           </BrowserRouter>
-          
         </div>
       );
     } else {
       return (
         <div className="App">
-          {/* <NavbarNotLoggedIn userInSession={this.state.loggedInUser} getUser={this.getTheUser} /> */}
           <BrowserRouter>
             <Switch>
               <Route exact path='/' render={() => <HomeNoUser getUser={this.fetchUser}/>}/>
