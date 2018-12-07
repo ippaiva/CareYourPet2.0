@@ -18,19 +18,28 @@ class HomeNoUser extends Component {
   }
 
   render () {
-
     let form;
-
     if (this.state.isSignUp) {
       form = <Signup getUser={this.getTheUser} handleSignup={this.handleSignup} />;
     } else {
       form = <Login getUser={this.getTheUser} handleSignup={this.handleSignup} />;
     }
-
     return (
       <div>
         <div className="">
-          <div>
+          <section className="hero is-primary is-medium">
+            <div className="hero-body">
+              <div className="container">
+                <h1 className="title">
+                  Care For Your Pet
+                </h1>
+                <h2 className="subtitle">
+                A place where animal lovers become a community!
+                </h2>
+              </div>
+            </div>
+          </section>
+          <div className="outterDiv hero">
             <div className="card">
               <figure className="image is-4by3">
                 <img src="img/home1.jpg" alt="Animals">
@@ -44,11 +53,6 @@ class HomeNoUser extends Component {
             </div>
             {form}
           </div>
-        </div>
-        
-        
-        <div className="">
-          <h1>Hello</h1>
         </div>
       </div>
     )

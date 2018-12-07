@@ -82,7 +82,7 @@ class Signup extends Component {
         <button className="button is-primary" type="submit" value="Signup">Signup</button>
       </form>
       <p>Already have account? 
-          <button onClick={() => this.props.handleSignup()}> Login</button>
+        <button onClick={() => this.props.handleSignup()}> Login</button>
       </p>
 
     </div>
