@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AuthService from './auth-service';
-import { Link } from 'react-router-dom';
 import InputText from '../forms/InputText';
 
 class Login extends Component {

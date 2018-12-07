@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import AuthService from './auth-service';
-import { Link } from 'react-router-dom';
 import InputText from '../forms/InputText';
 import { Redirect } from 'react-router-dom'
 

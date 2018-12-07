@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 import AuthService from "../auth/auth-service";
 
 class NavbarNotLoggedIn extends Component {
@@ -17,7 +16,7 @@ class NavbarNotLoggedIn extends Component {
             <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, and modern CSS framework based on Flexbox" width="112" height="28"></img>
           </a>
 
-          <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
+          <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" href="#d">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>

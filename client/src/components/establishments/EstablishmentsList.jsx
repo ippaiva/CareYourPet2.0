@@ -1,10 +1,5 @@
 // EstablishmentsList
 import React, { Component } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-
-import AddEstablishment from './AddEstablishment';
-
 
 class EstablishmentsList extends Component {
   constructor(props){
