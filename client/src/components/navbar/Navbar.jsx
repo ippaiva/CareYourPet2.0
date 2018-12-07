@@ -22,7 +22,7 @@ class Navbar extends Component {
           <img src="img/logo2.svg" alt="logo" width="200px"></img>
           <p className="menu-label">CareYourPet - General</p>
           <ul className="menu-list">
-            <Link to='../user/Profile.jsx'>Profile</Link>
+            <Link to='../user/Profile.jsx'>Profile </Link>
             <Link to='../user/Pets.jsx'>My Pets</Link>
             <Link to='../establishments/MyEstablishments.jsx'>My Establishments</Link>
           </ul>
