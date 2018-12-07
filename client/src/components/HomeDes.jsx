@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Navbar from './navbar/Navbar';
 import Login from './auth/Login';
 import Signup from './auth/Signup';
@@ -13,9 +11,11 @@ class HomeNoUser extends Component {
       password: '',
       isSignUp: false
     };
+    console.log(props);
   }
 
   handleSignup = () => {
+    console.log('click handle')
     let signup = !this.state.isSignUp;
     this.setState({isSignUp: signup});
   }
@@ -27,12 +27,13 @@ class HomeNoUser extends Component {
     if (this.state.isSignUp) {
       form = <Signup getUser={this.getTheUser} handleSignup={this.handleSignup} />;
     } else {
-      form = <Login getUser={this.getTheUser} handleSignup={this.handleSignup} />;
+      form = <Login getUser={this.getTheUser} handleSignup={this.handleSignup} handleHome={this.props.fetchUser} />;
     }
 
     return (
       <div>
         <div className="">
+        <Navbar/>
           <div>
             <div className="card">
               <figure className="image is-4by3">

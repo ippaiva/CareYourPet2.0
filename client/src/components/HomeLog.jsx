@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
 import Navbar from './navbar/Navbar';
-import Login from './auth/Login';
-import Signup from './auth/Signup';
+
 
 class HomeLog extends Component {
   constructor(props){
@@ -19,7 +16,7 @@ class HomeLog extends Component {
     return (
       <div>
         <Navbar />
-        
+        <h1>ROMULOBICHAO</h1>
       </div>
     )
   }

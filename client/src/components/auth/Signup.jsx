@@ -1,10 +1,9 @@
 // auth/Signup.js
 
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import AuthService from './auth-service';
-import { Link } from 'react-router-dom';
 import InputText from '../forms/InputText';
-import { Redirect } from 'react-router-dom'
 
 
 class Signup extends Component {
@@ -49,8 +48,9 @@ class Signup extends Component {
   }
 
   renderRedirect = () => {
+    console.log('clicked')
     if (this.state.redirect) {
-      return <Redirect to='/carol' />
+      return <Redirect to='/home' />
     }
   }
   
@@ -82,6 +82,7 @@ class Signup extends Component {
         
         <button className="button is-primary" type="submit" value="Signup">Signup</button>
       </form>
+      {this.renderRedirect()}
       <p>Already have account? 
           <button onClick={() => this.props.handleSignup()}> Login</button>
       </p>
