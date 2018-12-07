@@ -12,20 +12,21 @@ class Navbar extends Component {
 
   logout(){
     this.service.logout().then(() => {
-      this.fetchUser()
+      this.props.fetchUser()
     });
   }
 
   render() {
+    console.log("navbar", this.props);
     return (
       <div>
         <aside className="menu">
           <img src="img/logo2.svg" alt="logo" width="200px"></img>
           <p className="menu-label">CareYourPet - General</p>
           <ul className="menu-list">
-            <Link to='/Profile'>Profile</Link>
-            <Link to='/Pets'>My Pets</Link>
-            <Link to='/MyEstablishments'>My Establishments</Link>
+            <Link to='/profile'>Profile</Link>
+            <Link to='/pets'>My Pets</Link>
+            <Link to='/my-establishments'>My Establishments</Link>
           </ul>
           <button type="submit" name="logout" onClick={() => this.logout()} >Log Out</button>
         </aside>

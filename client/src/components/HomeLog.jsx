@@ -3,19 +3,12 @@ import React, { Component } from 'react';
 import Navbar from './navbar/Navbar';
 
 class HomeLog extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      username: '',
-      password: ''
-    };
-  }
-
   render() {
+    console.log("homelog", this.props)
     return (
       <div>
-        <Navbar />
-        <h1>ROMULOBICHAO</h1>
+        <Navbar fetchUser={this.props.fetchUser} />
+        <h1>Home logada</h1>
       </div>
     )
   }
