@@ -58,9 +58,9 @@ class App extends Component {
           <BrowserRouter>
             <Switch>
               <ProtectedRoute user={this.state.loggedInUser} path='/home' component={HomeLog} />
-              <ProtectedRoute user={this.state.loggedInUser} path='./components/user/Profile' component={Profile} />
+              <ProtectedRoute user={this.state.loggedInUser} path='./components/user/Profile.jsx' component={Profile} />
               <ProtectedRoute user={this.state.loggedInUser} path='./components/user/Pets.jsx' component={Pets} />
-              <ProtectedRoute user={this.state.loggedInUser} path='./components/establishments/MyEstablishments.jsx.jsx' component={MyEstablishments} />
+              <ProtectedRoute user={this.state.loggedInUser} path='./components/establishments/MyEstablishments.jsx' component={MyEstablishments} />
             </Switch>
           </BrowserRouter>
         </div>

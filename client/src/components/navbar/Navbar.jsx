@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AuthService from "../auth/auth-service";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import Profile from '../user/Profile';
 
 class Navbar extends Component {
   constructor(props) {
@@ -22,9 +23,9 @@ class Navbar extends Component {
           <img src="img/logo2.svg" alt="logo" width="200px"></img>
           <p className="menu-label">CareYourPet - General</p>
           <ul className="menu-list">
-            <Link to='../user/Profile.jsx'>Profile</Link>
-            <Link to='../user/Pets.jsx'>My Pets</Link>
-            <Link to='../establishments/MyEstablishments.jsx'>My Establishments</Link>
+            <Link to='/Profile'>Profile</Link>
+            <Link to='/Pets'>My Pets</Link>
+            <Link to='/MyEstablishments'>My Establishments</Link>
           </ul>
           <button type="submit" name="logout" onClick={() => this.logout()} >Log Out</button>
         </aside>
