@@ -21,9 +21,9 @@ class HomeNoUser extends Component {
   render () {
     let form;
     if (this.state.isSignUp) {
-      form = <Signup getUser={this.getTheUser} handleSignup={this.handleSignup} />;
+      form = <Signup handleSignup={this.handleSignup} handleHome={this.props.getUser} />;
     } else {
-      form = <Login getUser={this.getTheUser} handleSignup={this.handleSignup} />;
+      form = <Login handleSignup={this.handleSignup} handleHome={this.props.getUser} />;
     }
     return (
       <div>

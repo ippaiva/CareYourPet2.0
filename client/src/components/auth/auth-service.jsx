@@ -17,7 +17,6 @@ class AuthService {
   }
 
   login = (username, password) => {
-    console.log(username, password);
     return this.service.post('/login', {
         username,
         password
@@ -26,13 +25,13 @@ class AuthService {
   }
   
   logout = () => {
-    return this.service.post('/logout', {})
-      .then(response => response.data)
+    return this.service.get('/logout')
+      .then(response => response)
   }
 
   loggedin = () => {
-    return this.service.get('/loggedin');
-      // .then(response => response.data)
+    return this.service.get('/loggedin')
+      .then(response => response)
   }
 
 

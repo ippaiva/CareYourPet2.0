@@ -14,8 +14,8 @@ class HomeLog extends Component {
   render() {
     return (
       <div>
-        <Navbar logout={this.props.logout}/>
-        
+        <Navbar />
+        <h1>ROMULOBICHAO</h1>
       </div>
     )
   }

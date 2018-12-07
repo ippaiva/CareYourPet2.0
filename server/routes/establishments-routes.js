@@ -7,7 +7,9 @@ const Establishment = require('../models/Establishment');
 
 // POST route => to create a new establishment
 router.post('/create', (req, res, next) => {
+  console.log(req.body);
   Establishment.create({
+<<<<<<< HEAD
     owner: req.body.owner, // req.user.id apos login esta ok.
     estabilishimentName: req.body.estabilishimentName,
     adress: req.body.adress,
@@ -16,8 +18,19 @@ router.post('/create', (req, res, next) => {
     type: req.body.type,
     services: req.body.services,
     workingHours: req.body.workingHours,
+=======
+    owner: req.user.id,
+    establishmentName: req.body.EstablishmentName,
+    address: req.body.Address,
+    zipCode: req.body.ZipCode,
+    phone: req.body.Phone,
+    type: req.body.Type,
+    services: req.body.Services,
+    workingHour: req.body.WorkingHour
+>>>>>>> d3a1e980980e2530f25d60ac03a4754b71436a5b
   })
     .then((response) => {
+      console.log(response);
       res.json(response);
     })
     .catch((err) => {
@@ -38,7 +51,11 @@ router.get('/:id', (req, res, next) => {
     .then(() => {
       console.log('GET');
       res.json({
+<<<<<<< HEAD
         message: `Establishment with ${req.params.id} is here.`,
+=======
+        message: `Establishment with ${req.params.id} is here.`
+>>>>>>> d3a1e980980e2530f25d60ac03a4754b71436a5b
       });
     })
     .catch((err) => {

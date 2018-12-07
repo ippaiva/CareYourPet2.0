@@ -5,7 +5,11 @@ import InputText from '../forms/InputText';
 class Login extends Component {
   constructor(props){
     super(props);
-    this.state = { username: '', password: '' };
+    this.state = {
+      username: '',
+      password: '',
+    };
+    this.handleHome = this.props.handleHome;
     this.service = new AuthService();
   }
 
@@ -15,12 +19,13 @@ class Login extends Component {
     const password = this.state.password;
     this.service.login(username, password)
     .then( response => {
+        this.handleHome();
         this.setState({ username: "", password: "" });
-        // this.props.getUser(response)
+        // this.props.getUser(response);
     })
     .catch( error => console.log(error) )
   }
-    
+
   handleChange = (event) => {  
     const {name, value} = event.target;
     this.setState({[name]: value});
