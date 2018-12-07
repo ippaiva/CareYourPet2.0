@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Navbar from './navbar/Navbar';
 
 class HomeLog extends Component {
@@ -6,8 +7,7 @@ class HomeLog extends Component {
     super(props);
     this.state = {
       username: '',
-      password: '',
-      isSignUp: false
+      password: ''
     };
   }
 
