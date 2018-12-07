@@ -22,8 +22,9 @@ class Navbar extends Component {
           <img src="img/logo2.svg" alt="logo" width="200px"></img>
           <p className="menu-label">General</p>
           <ul className="menu-list">
-            <li><a href="#j">My Profile </a></li>
-            <li><a href="#y">My Establishments</a></li>
+            <Link to='../user/Profile.jsx'>Profile </Link>
+            <Link to='../user/Pets.jsx'>My Pets</Link>
+            <Link to='../establishments/MyEstablishments.jsx'>My Establishments</Link>
           </ul>
           <button onClick={this.logout} type="submit" name="logout">Logout</button>
         </aside>
