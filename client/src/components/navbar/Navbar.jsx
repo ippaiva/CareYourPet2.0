@@ -12,6 +12,9 @@ class Navbar extends Component {
   render() {
     return (
       <div>
+        <ul>
+          <li><Link to = '/'>Meu Perfil</Link></li>
+        </ul>
         <aside className="menu">
           <img src="img/logo.svg" alt="logo"></img>
           <p className="menu-label">General</p>

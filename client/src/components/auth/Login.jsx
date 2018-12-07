@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AuthService from './auth-service';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import InputText from '../forms/InputText';
 
 class Login extends Component {
@@ -17,7 +17,8 @@ class Login extends Component {
     this.service.login(username, password)
     .then( response => {
         this.setState({ username: "", password: "" });
-        this.props.getUser(response)
+        this.props.getUser(response);
+        this.props.history.push('/');
     })
     .catch( error => console.log(error) )
   }
@@ -50,4 +51,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
