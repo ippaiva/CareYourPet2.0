@@ -5,11 +5,10 @@ import AuthService from './components/auth/auth-service';
 import EstablishmentsList from './components/establishments/EstablishmentsList';
 import AddEstablishment from './components/establishments/AddEstablishment';
 import Navbar from './components/navbar/Navbar'
-import Signup from './components/auth/Signup'
-import Login from './components/auth/Login'
 import ProtectedRoute from './components/auth/protected-route';
 import NavbarNotLoggedIn from './components/navbar/NavbarNotLoggedIn'
 import HomeNoUser from './components/HomeDes'
+import HomeLog from './components/HomeLog'
 
 class App extends Component {
   constructor(props) {
@@ -24,8 +23,8 @@ class App extends Component {
       this.service.loggedin()
       .then(response => {
         this.setState({
-          loggedInUser: 'response'
-        }, () => { console.log(this.state) });
+          loggedInUser: response.data
+        });
       })
       .catch( err => {
         this.setState({
@@ -45,12 +44,13 @@ class App extends Component {
     this.fetchUser()
     if(this.state.loggedInUser){
       return (
-        <div className="App columns">
+        <div className="App">
           <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
           <BrowserRouter>
             <Switch>
-              <ProtectedRoute user={this.state.loggedInUser} path='/establishments' component={EstablishmentsList} />
+              <ProtectedRoute user={this.state.loggedInUser} path='/' component={HomeLog} />
               <ProtectedRoute user={this.state.loggedInUser} path='/establishments/add' component={AddEstablishment} />
+              <ProtectedRoute user={this.state.loggedInUser} path='/establishments' component={EstablishmentsList} />
             </Switch>
           </BrowserRouter>
         </div>
@@ -59,11 +59,9 @@ class App extends Component {
       return (
         <div className="App">
           <NavbarNotLoggedIn userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
-          <HomeNoUser />
           <BrowserRouter>
             <Switch>
-              <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
-              <Route exact path='/' render={() => <Login getUser={this.getTheUser}/>}/>
+              <Route exact path='/' render={() => <HomeNoUser getUser={this.fetchUser}/>}/>
             </Switch>
           </BrowserRouter>
         </div>

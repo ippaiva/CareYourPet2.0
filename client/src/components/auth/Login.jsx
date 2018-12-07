@@ -17,7 +17,7 @@ class Login extends Component {
     this.service.login(username, password)
     .then( response => {
         this.setState({ username: "", password: "" });
-        this.props.getUser(response)
+        // this.props.getUser(response)
     })
     .catch( error => console.log(error) )
   }
@@ -31,20 +31,14 @@ class Login extends Component {
     return(
       <div>
         <form onSubmit={this.handleFormSubmit}>
-
-        <InputText label="User Name:" fieldName="username" placeHolder="Digite um username" value={this.state.username} handleChange={this.handleChange} />
-
-        <InputText label="Password:" fieldName="password" placeHolder="Digite uma senha" value={this.state.password} handleChange={this.handleChange} />
-
-        <button className="button is-primary" type="submit" value="Login">Login</button>
-
+          <InputText label="User Name:" fieldName="username" placeHolder="Digite um username" value={this.state.username} handleChange={this.handleChange} />
+          <InputText label="Password:" fieldName="password" placeHolder="Digite uma senha" value={this.state.password} handleChange={this.handleChange} />
+          <button className="button is-primary" type="submit" value="Login">Login</button>
         </form>
         <span>Forgot your password?</span>
-        
-        <p>Don't have account? 
-            <Link to={"/Signup"}> Signup</Link>
+        <p>Don't have an account? 
+          <button onClick={ () => this.props.handleSignup()}> Signup</button>
         </p>
-
       </div>
     )
   }

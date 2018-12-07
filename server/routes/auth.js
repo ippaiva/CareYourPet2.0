@@ -17,21 +17,39 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
 
 // SIGNUP
 router.post('/signup', (req, res, next) => {
-  const { name, lastName, username, email, address, zipcode, phone, password } = req.body;
-  if (name === '' || lastName === '' || username === '' || email === '' || address === '' || zipcode === '' || phone === '' || password === '') {
+
+  const {
+    name,
+    lastName,
+    username,
+    email,
+    address,
+    zipcode,
+    phone,
+    password,
+  } = req.body;
+
+  if (name === ''
+  || lastName === ''
+  || username === ''
+  || email === ''
+  || address === ''
+  || zipcode === ''
+  || phone === ''
+  || password === '') {
     res.status(400).json({ message: 'aphahode' });
     return;
   }
-
+  
   User.findOne({ username }, 'username', (err, user) => {
     if (user !== null) {
       res.status(400).json({ message: 'The username already exists' });
       return;
     }
-
+    
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
-
+    
     const newUser = new User({
       name,
       lastName,
@@ -40,17 +58,18 @@ router.post('/signup', (req, res, next) => {
       address,
       zipcode,
       phone,
-      password: hashPass
+      password: hashPass,
       // pictureURL: req.file.url
     });
-
+    
     newUser.save()
-      .then((user) => {
-        res.status(200).json(user);
-      })
-      .catch((err) => {
-        res.status(400).json(err);
-      });
+    .then((user) => {
+      res.status(200).json(user);
+    })
+    .catch((err) => {
+      console.log(err.message);
+      res.status(400).json(err);
+    });
   });
 });
 
