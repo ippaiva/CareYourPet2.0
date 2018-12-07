@@ -38,11 +38,11 @@ class Signup extends Component {
     this.service.signup(username, password, name, lastName, email, phone, zipcode, address)
     .then( response => {
         this.setState({
-            username: "", 
-            password: "",
+            username, 
+            password,
             redirect: true,
         });
-
+        this.props.getUser(response);
     })
     .catch( error => console.log(error) )
   }
@@ -72,7 +72,7 @@ class Signup extends Component {
 
         <InputText label="Password:" fieldName="password" placeHolder="Digite uma senha" value={this.state.password} handleChange={this.handleChange} />
         
-        <button className="button is-primary" type="submit" value="Signup">Signup</button>
+        <input className="button is-primary" type="submit" value="Signup" />
       </form>
       <p>Already have account? 
         <Link to="/">Login</Link>
