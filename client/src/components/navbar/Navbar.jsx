@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import AuthService from "../auth/auth-service";
-<<<<<<< HEAD
-=======
 import { Link } from 'react-router-dom';
 import Profile from '../user/Profile';
->>>>>>> 03da5c2312800300626734a4f2fa749a4290bd4b
 
 class Navbar extends Component {
   constructor(props) {
