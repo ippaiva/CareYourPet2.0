@@ -49,9 +49,13 @@
 }
 
 .sidebar {
-  width: 50%;
+  width: 30%;
 }
 
 .menu-list {
   font-size: 0.8em;
+}
+
+.sidebar {
+  position: sticky;
 }
