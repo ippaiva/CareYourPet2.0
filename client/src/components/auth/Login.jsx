@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
 import AuthService from './auth-service';
 import InputText from '../forms/InputText';
+import { Redirect } from 'react-router-dom'
 
 
 class Login extends Component {
   constructor(props){
     super(props);
-    this.state = { username: '', password: '' };
+    this.state = {
+      username: '',
+      password: '',
+      redirect: false,
+    };
+    this.handleHome = this.props.handleHome;
     this.service = new AuthService();
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const username = this.state.username;
-    const password = this.state.password;
+    const { username, password } = this.state;
     this.service.login(username, password)
-    .then( response => {
-        this.setState({ username: "", password: "" });
-        // this.props.getUser(response)
+      .then(response => {
+          this.props.fetchUser();
+          this.setRedirect();
+      })
+      .catch( error => console.log(error) )
+  }
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
     })
-    .catch( error => console.log(error) )
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/home' />
+    }
   }
     
   handleChange = (event) => {  
@@ -28,17 +45,15 @@ class Login extends Component {
   }
     
   render(){
+    console.log(this.props)
     return(
       <div>
+        {this.renderRedirect()}
         <form onSubmit={this.handleFormSubmit}>
           <InputText label="Username:" fieldName="username" placeHolder="Digite um username" value={this.state.username} handleChange={this.handleChange} />
           <InputText label="Password:" fieldName="password" placeHolder="Digite uma senha" value={this.state.password} handleChange={this.handleChange} />
           <button className="button is-info" type="submit" value="Login">Login</button>
         </form>
-        <span>Forgot your password?</span>
-        <p>Don't have an account? 
-          <button onClick={this.props.handleSignup}> Signup</button>
-        </p>
       </div>
     )
   }

@@ -2,20 +2,13 @@ import React, { Component } from 'react';
 import Navbar from './navbar/Navbar';
 
 class HomeLog extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      username: '',
-      password: ''
-    };
-  }
-
   render() {
+    console.log("homelog", this.props)
     return (
       <div className="homeLog">
 
         <div className="sidebar">
-          <Navbar />
+          <Navbar fetchUser={this.props.fetchUser} />
         </div>
 
         <div>
@@ -33,6 +26,7 @@ class HomeLog extends Component {
                 </img>
               </figure>
             </div>
+
             <div className="card-content">
               <div className="content">
                 <h4>Avengers Petshop</h4>
@@ -41,9 +35,8 @@ class HomeLog extends Component {
             </div>
           </div>
 
-
       </div>
-      </div>
+    </div>  
     )
   }
 }

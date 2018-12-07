@@ -1,69 +1,81 @@
-import React, { Component } from 'react';
-import './App.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import AuthService from './components/auth/auth-service';
-import ProtectedRoute from './components/auth/protected-route';
-import HomeNoUser from './components/HomeDes'
-import HomeLog from './components/HomeLog'
-import Profile from './components/user/Profile'
-import Pets from './components/user/Pets'
-import MyEstablishments from './components/establishments/MyEstablishments'
+import React, { Component } from "react";
+import "./App.css";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import AuthService from "./components/auth/auth-service";
+import ProtectedRoute from "./components/auth/protected-route";
+import HomeDes from "./components/HomeDes";
+import HomeLog from "./components/HomeLog";
+import Signup from "./components/auth/Signup";
+import NavbarNotLoggedIn from "./components/navbar/NavbarNotLoggedIn";
 
 class App extends Component {
   constructor(props) {
-    super(props)
-    this.state = { loggedInUser: null };
+    super(props);
+    this.state = { loggedInUser: "", serverResponse: false };
     this.service = new AuthService();
     this.fetchUser = this.fetchUser.bind(this);
+    this.setUser = this.setUser.bind(this);
   }
 
-  fetchUser() {
-    if (this.state.loggedInUser === null) { 
-      this.service.loggedin()
+  fetchUser = () => {
+    this.service
+      .loggedin()
       .then(response => {
+        console.log("fetchUser", response.data);
         this.setState({
           loggedInUser: response.data
         });
       })
-      .catch( err => {
+      .catch(err => {
         this.setState({
           loggedInUser: false
-        })
-      })
-    }
-  }
+        });
+      });
+  };
 
-  getTheUser= (userObj) => {
+  setUser = userObj => {
     this.setState({
       loggedInUser: userObj
-    })
-  }
+    });
+  };
 
   render() {
-    this.fetchUser()
-    if(this.state.loggedInUser){
+    console.log("######", this.state.loggedInUser);
+    if (this.state.loggedInUser) {
       return (
         <div className="App">
           <BrowserRouter>
             <Switch>
-              <ProtectedRoute user={this.state.loggedInUser} path='/' component={HomeLog} />
-              <ProtectedRoute user={this.state.loggedInUser} path='./components/user/Profile.jsx' component={Profile} />
+              <ProtectedRoute
+                fetchUser={this.fetchUser}
+                user={this.state.loggedInUser}
+                path="/home"
+                component={HomeLog}
+              />
+              {/* <ProtectedRoute user={this.state.loggedInUser} path='./components/user/Profile.jsx' component={Profile} />
               <ProtectedRoute user={this.state.loggedInUser} path='./components/user/Pets.jsx' component={Pets} />
-              <ProtectedRoute user={this.state.loggedInUser} path='./components/establishments/MyEstablishments.jsx' component={MyEstablishments} />
+              <ProtectedRoute user={this.state.loggedInUser} path='./components/establishments/MyEstablishments.jsx' component={MyEstablishments} /> */}
             </Switch>
           </BrowserRouter>
         </div>
       );
     } else {
+      console.log("AQUIII");
       return (
         <div className="App">
+          <NavbarNotLoggedIn />
           <BrowserRouter>
             <Switch>
-              <Route exact path='/' render={() => <HomeNoUser getUser={this.fetchUser}/>}/>
+              <Route
+                exact
+                path="/"
+                render={() => <HomeDes fetchUser={this.fetchUser} />}
+              />
+              <Route exact path="/signup" component={Signup} />
             </Switch>
           </BrowserRouter>
         </div>
-      )
+      );
     }
   }
 }
