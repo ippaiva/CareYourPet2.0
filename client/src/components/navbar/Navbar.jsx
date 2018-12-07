@@ -8,6 +8,12 @@ class Navbar extends Component {
     this.service = new AuthService();
   }
 
+  logout(){
+    this.service.logout().then(() => {
+      this.fetchUser()
+    });
+  }
+
   render() {
     return (
       <div>
@@ -18,10 +24,10 @@ class Navbar extends Component {
           <img src="img/logo2.svg" alt="logo" width="200px"></img>
           <p className="menu-label">General</p>
           <ul className="menu-list">
-            <li><a href="#">Meu Perfil</a></li>
-            <li><a href="#">Meus Estabelecimentos</a></li>
+            <li><a href="#j">Meu Perfil</a></li>
+            <li><a href="#y">Meus Estabelecimentos</a></li>
           </ul>
-          <button type="submit" name="logout"  >Log Out</button>
+          <button type="submit" name="logout" onClick={() => this.logout()} >Log Out</button>
         </aside>
       </div>
     );

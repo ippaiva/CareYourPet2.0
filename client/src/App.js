@@ -11,19 +11,19 @@ import HomeLog from './components/HomeLog'
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = { loggedInUser: null };
+    this.state = { loggedInUser: '', serverResponse: false };
     this.service = new AuthService();
     this.fetchUser = this.fetchUser.bind(this);
-    console.log('test', this.state.loggedInUser);
   }
 
-  fetchUser() {
-    if (this.state.loggedInUser === null) {
+  fetchUser = () => {
+    if (this.state.loggedInUser === '') {
       this.service.loggedin()
       .then(response => {
         this.setState({
-          loggedInUser: response.data
-        }, () => { console.log(this.state) });
+          loggedInUser: response.data,
+          serverResponse: true
+        });
       })
       .catch( err => {
         this.setState({
@@ -33,19 +33,24 @@ class App extends Component {
     }
   }
 
-  getTheUser= (userObj) => {
+  getTheUser = (userObj) => {
     this.setState({
       loggedInUser: userObj
     })
   }
 
+  componentDidMount() {
+    this.fetchUser();
+  }
+
   render() {
-    this.fetchUser()
+    if(this.serverResponse === true){
+
+    }
     if(this.state.loggedInUser){
-      console.log('usuario logado')
       return (
         <div className="App">
-          <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
+          <Navbar userInSession={this.state.loggedInUser} getUser={this.fetchUser} />
           <BrowserRouter>
             <Switch>
               <ProtectedRoute user={this.state.loggedInUser} path='/home' component={HomeLog} />

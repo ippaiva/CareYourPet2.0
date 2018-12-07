@@ -56,7 +56,6 @@ class Signup extends Component {
   
   handleChange = (event) => {  
     const {name, value} = event.target;
-    console.log('handleChange', event.target)
     this.setState({[name]: value});
   }
 
@@ -84,7 +83,7 @@ class Signup extends Component {
       </form>
       {this.renderRedirect()}
       <p>Already have account? 
-          <button onClick={() => this.props.handleSignup()}> Login</button>
+        <button onClick={() => this.props.handleSignup()}> Login</button>
       </p>
 
     </div>

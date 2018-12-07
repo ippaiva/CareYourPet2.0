@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from './navbar/Navbar';
 import Login from './auth/Login';
 import Signup from './auth/Signup';
 
@@ -11,33 +10,39 @@ class HomeNoUser extends Component {
       password: '',
       isSignUp: false
     };
-    console.log(props);
   }
 
   handleSignup = () => {
-    console.log('click handle')
     let signup = !this.state.isSignUp;
     this.setState({isSignUp: signup});
   }
 
   render () {
-
     let form;
-
     if (this.state.isSignUp) {
-      form = <Signup getUser={this.getTheUser} handleSignup={this.handleSignup} />;
+      form = <Signup handleSignup={this.handleSignup} handleHome={this.props.getUser} />;
     } else {
-      form = <Login getUser={this.getTheUser} handleSignup={this.handleSignup} handleHome={this.props.fetchUser} />;
+      form = <Login handleSignup={this.handleSignup} handleHome={this.props.getUser} />;
     }
-
     return (
       <div>
         <div className="">
-        <Navbar/>
-          <div>
+          <section className="hero is-primary is-medium">
+            <div className="hero-body">
+              <div className="container">
+                <h1 className="title">
+                  Care For Your Pet
+                </h1>
+                <h2 className="subtitle">
+                A place where animal lovers become a community!
+                </h2>
+              </div>
+            </div>
+          </section>
+          <div className="outterDiv hero">
             <div className="card">
               <figure className="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                <img src="img/home1.jpg" alt="Animals">
                 </img>
               </figure>
             </div>
@@ -48,11 +53,6 @@ class HomeNoUser extends Component {
             </div>
             {form}
           </div>
-        </div>
-        
-        
-        <div className="">
-          <h1></h1>
         </div>
       </div>
     )
