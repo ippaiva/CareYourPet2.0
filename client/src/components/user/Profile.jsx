@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import Navbar from './navbar/Navbar';
+import Navbar from '../navbar/Navbar';
 
 class Profile extends Component {
   constructor(props){
@@ -10,7 +9,6 @@ class Profile extends Component {
       password: ''
     };
   }
-
   render() {
     return (
       <div>
@@ -21,5 +19,4 @@ class Profile extends Component {
   }
 }
 
-
-  export default Profile;
+export default Profile;

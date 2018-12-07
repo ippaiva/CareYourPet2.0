@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import Navbar from './navbar/Navbar';
+import Navbar from '../navbar/Navbar';
 
 class Pets extends Component {
   constructor(props){
@@ -21,5 +20,4 @@ class Pets extends Component {
   }
 }
 
-
-  export default Pets;
+export default Pets;

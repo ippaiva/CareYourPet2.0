@@ -1,8 +1,6 @@
 // Establishments
 import React, { Component } from 'react';
-
-import Navbar from './navbar/Navbar';
-
+import axios from 'axios';
 
 class MyEstablishments extends Component {
   constructor(props){

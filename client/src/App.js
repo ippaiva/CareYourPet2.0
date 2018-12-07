@@ -47,9 +47,16 @@ class App extends Component {
           {/* <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} /> */}
           <BrowserRouter>
             <Switch>
+<<<<<<< HEAD
               <ProtectedRoute user={this.state.loggedInUser} path='/' component={HomeLog} />
               <ProtectedRoute user={this.state.loggedInUser} path='/establishments/add' component={AddEstablishment} />
               <ProtectedRoute user={this.state.loggedInUser} path='/establishments' component={EstablishmentsList} />
+=======
+              <ProtectedRoute user={this.state.loggedInUser} path='/home' component={HomeLog} />
+              <ProtectedRoute user={this.state.loggedInUser} path='./components/user/Profile.jsx' component={Profile} />
+              <ProtectedRoute user={this.state.loggedInUser} path='./components/user/Pets.jsx' component={Pets} />
+              <ProtectedRoute user={this.state.loggedInUser} path='./components/establishments/MyEstablishments.jsx' component={MyEstablishments} />
+>>>>>>> 03da5c2312800300626734a4f2fa749a4290bd4b
             </Switch>
           </BrowserRouter>
           
