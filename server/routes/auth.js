@@ -25,7 +25,7 @@ router.post('/signup', (req, res, next) => {
     address,
     zipcode,
     phone,
-    password
+    password,
   } = req.body;
 
   if (name === ''
@@ -57,7 +57,7 @@ router.post('/signup', (req, res, next) => {
       address,
       zipcode,
       phone,
-      password: hashPass
+      password: hashPass,
       // pictureURL: req.file.url
     });
 
@@ -74,7 +74,11 @@ router.post('/signup', (req, res, next) => {
 
 // LOGGEDIN
 router.get('/loggedin', (req, res, next) => {
-  res.status(200).json(req.user);
+  if (req.user) {
+    res.status(200).json(req.user);
+  } else {
+    res.status(400).json({ message: 'The user is not logged' });
+  }
 });
 
 // LOGOUT

@@ -42,3 +42,16 @@
   width: 50%;
   margin: auto;
 }
+
+.homeLog {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  width: 50%;
+}
+
+.menu-list {
+  font-size: 0.8em;
+}

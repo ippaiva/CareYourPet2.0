@@ -4,6 +4,7 @@ import AuthService from './auth-service';
 import InputText from '../forms/InputText';
 import { Redirect } from 'react-router-dom'
 
+
 class Login extends Component {
   constructor(props){
     super(props);
@@ -38,7 +39,7 @@ class Login extends Component {
       return <Redirect to='/home' />
     }
   }
-
+    
   handleChange = (event) => {  
     const {name, value} = event.target;
     this.setState({[name]: value});
@@ -50,9 +51,9 @@ class Login extends Component {
       <div>
         {this.renderRedirect()}
         <form onSubmit={this.handleFormSubmit}>
-          <InputText label="User Name:" fieldName="username" placeHolder="Digite um username" value={this.state.username} handleChange={this.handleChange} />
+          <InputText label="Username:" fieldName="username" placeHolder="Digite um username" value={this.state.username} handleChange={this.handleChange} />
           <InputText label="Password:" fieldName="password" placeHolder="Digite uma senha" value={this.state.password} handleChange={this.handleChange} />
-          <button className="button is-primary" type="submit" value="Login">Login</button>
+          <button className="button is-info" type="submit" value="Login">Login</button>
         </form>
       </div>
     )

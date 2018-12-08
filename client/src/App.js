@@ -26,8 +26,7 @@ class App extends Component {
       .then(response => {
         console.log("fetchUser", response.data);
         this.setState({
-          loggedInUser: response.data,
-          serverResponse: true
+          loggedInUser: response.data
         });
       })
       .catch(err => {
@@ -42,10 +41,6 @@ class App extends Component {
       loggedInUser: userObj
     });
   };
-
-  componentDidMount() {
-    this.fetchUser();
-  }
 
   render() {
     console.log("######", this.state.loggedInUser);

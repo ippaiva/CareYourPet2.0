@@ -16,7 +16,7 @@ router.post('/create', (req, res, next) => {
     phone: req.body.Phone,
     type: req.body.Type,
     services: req.body.Services,
-    workingHour: req.body.WorkingHour
+    workingHour: req.body.WorkingHour,
   })
     .then((response) => {
       console.log(response);
@@ -31,7 +31,7 @@ router.post('/create', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({
-      message: 'Specified id is not valid'
+      message: 'Specified id is not valid',
     });
     return;
   }
@@ -40,7 +40,7 @@ router.get('/:id', (req, res, next) => {
     .then(() => {
       console.log('GET');
       res.json({
-        message: `Establishment with ${req.params.id} is here.`
+        message: `Establishment with ${req.params.id} is here.`,
       });
     })
     .catch((err) => {
@@ -52,7 +52,7 @@ router.get('/:id', (req, res, next) => {
 router.put('/:id', (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({
-      message: 'Specified id is not valid'
+      message: 'Specified id is not valid',
     });
     return;
   }
@@ -60,7 +60,7 @@ router.put('/:id', (req, res, next) => {
   Establishment.findByIdAndUpdate(req.params.id, req.body)
     .then(() => {
       res.json({
-        message: `Establishment with ${req.params.id} is updated successfully.`
+        message: `Establishment with ${req.params.id} is updated successfully.`,
       });
     })
     .catch((err) => {
@@ -72,14 +72,14 @@ router.put('/:id', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({
-      message: 'Specified id is not valid'
+      message: 'Specified id is not valid',
     });
     return;
   }
   Establishment.findByIdAndRemove(req.params.id)
     .then(() => {
       res.json({
-        message: `Establishment with ${req.params.id} is removed suceccfully.`
+        message: `Establishment with ${req.params.id} is removed suceccfully.`,
       });
     })
     .catch((err) => {
