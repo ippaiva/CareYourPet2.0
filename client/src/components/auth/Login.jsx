@@ -11,7 +11,7 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      redirect: false,
+      redirect: false
     };
     this.handleHome = this.props.handleHome;
     this.service = new AuthService();
@@ -22,8 +22,8 @@ class Login extends Component {
     const { username, password } = this.state;
     this.service.login(username, password)
       .then(response => {
-          this.props.fetchUser();
-          this.setRedirect();
+        this.setRedirect();
+        this.props.fetchUser();
       })
       .catch( error => console.log(error) )
   }
@@ -46,7 +46,6 @@ class Login extends Component {
   }
     
   render(){
-    console.log(this.props)
     return(
       <div>
         {this.renderRedirect()}
