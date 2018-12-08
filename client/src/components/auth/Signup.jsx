@@ -19,6 +19,7 @@ class Signup extends Component {
       zipcode: '',
       address: '',
       redirect: false,
+      errorMessage: ''
     };
     this.service = new AuthService();
   }
@@ -36,15 +37,19 @@ class Signup extends Component {
     const password = this.state.password;
   
     this.service.signup(username, password, name, lastName, email, phone, zipcode, address)
-    .then( response => {
+    .then(response => {
+      console.log(response.data.code, response.data.message)
+      if(response.data.code !== 400){
         this.setState({
             username, 
             password,
             redirect: true,
         });
         this.props.getUser(response);
+      } else {
+        this.setState({errorMessage: response.data.message})
+      }
     })
-    .catch( error => console.log(error) )
   }
 
   handleChange = (event) => {  
@@ -73,6 +78,7 @@ class Signup extends Component {
         <InputText label="Password:" fieldName="password" placeHolder="Digite uma senha" value={this.state.password} handleChange={this.handleChange} />
         
         <input className="button is-primary" type="submit" value="Signup" />
+        <span>{this.state.errorMessage}</span>
       </form>
       <p>Already have account? 
         <Link to="/">Login</Link>
