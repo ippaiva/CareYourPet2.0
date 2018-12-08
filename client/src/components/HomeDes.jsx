@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Login from './auth/Login';
-import Signup from './auth/Signup';
-// import NavbarNotLoggedIn from './navbar/NavbarNotLoggedIn';
 import { Link } from 'react-router-dom';
 
 class HomeNoUser extends Component {

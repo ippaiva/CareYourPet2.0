@@ -3,7 +3,6 @@ import Navbar from './navbar/Navbar';
 
 class HomeLog extends Component {
   render() {
-    console.log("homelog", this.props)
     return (
       <div className="homeLog">
 

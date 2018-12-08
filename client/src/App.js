@@ -24,14 +24,14 @@ class App extends Component {
     this.service
       .loggedin()
       .then(response => {
-        console.log("fetchUser", response.data);
         this.setState({
-          loggedInUser: response.data
+          loggedInUser: response.data,
+          serverResponse: true
         });
       })
       .catch(err => {
         this.setState({
-          loggedInUser: false
+          loggedInUser: ''
         });
       });
   };
@@ -42,20 +42,24 @@ class App extends Component {
     });
   };
 
+  componentDidMount() {
+    this.fetchUser();
+  }
+
   render() {
-    console.log("######", this.state.loggedInUser);
       return (
         <div className="App">
           <NavbarNotLoggedIn />
           <BrowserRouter>
             <Switch>
-              <Route exact path="/" render={() => <HomeDes fetchUser={this.fetchUser} />}/>
+            <Route exact path="/" render={() => { return !this.state.loggedInUser ? 
+              <HomeDes fetchUser={this.fetchUser} /> : <Redirect to='/home'/>}} />
+              <ProtectedRoute fetchUser={this.fetchUser} user={this.state.loggedInUser} exact path="/home" component={HomeLog}/>
               <Route exact path="/signup" render={() => { return !this.state.loggedInUser ? 
               <Signup getUser={this.setUser} /> : <Redirect to='/home'/>}} />
-              <ProtectedRoute fetchUser={this.fetchUser} user={this.state.loggedInUser} exact path="/home" component={HomeLog}/>
-              <ProtectedRoute user={this.state.loggedInUser} path='./components/user/Profile.jsx' component={Profile}/>
-              <ProtectedRoute user={this.state.loggedInUser} path='./components/user/Pets.jsx' component={Pets}/>
-              <ProtectedRoute user={this.state.loggedInUser} path='./components/establishments/MyEstablishments.jsx' component={MyEstablishments}/>
+              <ProtectedRoute user={this.state.loggedInUser} path='/components/user/Profile.jsx' component={Profile}/>
+              <ProtectedRoute user={this.state.loggedInUser} path='/components/user/Pets.jsx' component={Pets}/>
+            <ProtectedRoute user={this.state.loggedInUser} path='./components/establishments/MyEstablishments.jsx' component={MyEstablishments}/>
             </Switch>
           </BrowserRouter>
         </div>

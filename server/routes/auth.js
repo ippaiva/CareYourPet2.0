@@ -25,7 +25,7 @@ router.post('/signup', (req, res, next) => {
     address,
     zipcode,
     phone,
-    password,
+    password
   } = req.body;
 
   if (name === ''
@@ -42,8 +42,7 @@ router.post('/signup', (req, res, next) => {
 
   User.findOne({ username }, 'username', (err, user) => {
     if (user !== null) {
-      res.status(400).json({ message: 'The username already exists' });
-      return;
+      return res.status(400).json({ message: 'The username already exists' });
     }
 
     const salt = bcrypt.genSaltSync(bcryptSalt);
@@ -63,22 +62,21 @@ router.post('/signup', (req, res, next) => {
 
     newUser.save()
       .then((user) => {
-        res.status(200).json(user);
+        req.login(user, function(err) {
+          if (err) { return next(err); }
+          return res.status(200).json(user);
+        });
       })
       .catch((err) => {
         console.log(err.message);
-        res.status(400).json(err);
+        return res.status(400).json(err);
       });
   });
 });
 
 // LOGGEDIN
 router.get('/loggedin', (req, res, next) => {
-  if (req.user) {
-    res.status(200).json(req.user);
-  } else {
-    res.status(400).json({ message: 'The user is not logged' });
-  }
+  return res.status(200).json(req.user);
 });
 
 // LOGOUT

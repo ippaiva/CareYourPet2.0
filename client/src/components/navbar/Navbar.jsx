@@ -1,25 +1,38 @@
 import React, { Component } from "react";
 import AuthService from "../auth/auth-service";
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    this.state = { loggedInUser: null };
+    this.state = { loggedInUser: null, redirect: false };
     this.service = new AuthService();
     this.logout = this.logout.bind(this);
   }
 
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/' />
+    }
+  }
+
   logout(){
     this.service.logout().then(() => {
-      this.props.fetchUser()
+      this.props.fetchUser();
+      this.setRedirect();
     });
   }
 
   render() {
-    console.log("navbar", this.props);
     return (
       <div>
+        {this.renderRedirect()}
         <aside className="menu">
           <img src="img/logo.png" alt="logo" width="200px"></img>
           <p className="menu-label">General</p>
