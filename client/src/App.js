@@ -10,6 +10,7 @@ import NavbarNotLoggedIn from "./components/navbar/NavbarNotLoggedIn";
 import Profile from "./components/user/Profile";
 import Pets from "./components/user/Pets";
 import MyEstablishments from "./components/establishments/MyEstablishments";
+import AddEstablishment from "./components/establishments/AddEstablishment";
 
 class App extends Component {
   constructor(props) {
@@ -60,6 +61,7 @@ class App extends Component {
               <ProtectedRoute user={this.state.loggedInUser} path='/profile' component={Profile}/>
               <ProtectedRoute user={this.state.loggedInUser} path='/pets' component={Pets}/>
               <ProtectedRoute user={this.state.loggedInUser} path='/my-establishments' component={MyEstablishments}/>
+              <ProtectedRoute user={this.state.loggedInUser} path='/add-establishment' component={AddEstablishment}/>
             </Switch>
           </BrowserRouter>
         </div>

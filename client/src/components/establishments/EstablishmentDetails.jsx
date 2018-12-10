@@ -13,12 +13,13 @@ class EstablishmentList extends Component {
     }
   
     getAllEstablishments = () =>{
-      axios.get(`http://localhost:5000/${this.props.loggedInUser._id}`, {withCredentials:true})
-      .then(responseFromEstablishments => {
-        this.setState({
-          listOfEstablishments: responseFromEstablishments.data
-        })
-      })
+      // axios.get(`http://localhost:5000/${this.props.loggedInUser.id}`, {withCredentials:true})
+      // .then(responseFromEstablishments => {
+      //   this.setState({
+      //     listOfEstablishments: responseFromEstablishments.data
+      //   })
+      // })
+      console.log(this.props.loggedInUser);
     }
   
     componentDidMount() {
