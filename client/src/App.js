@@ -49,17 +49,17 @@ class App extends Component {
   render() {
       return (
         <div className="App">
-          <NavbarNotLoggedIn/>
+          {/* <NavbarNotLoggedIn /> */}
           <BrowserRouter>
             <Switch>
-            <Route exact path="/" render={() => { return !this.state.loggedInUser ? 
-              <HomeDes fetchUser={this.fetchUser} /> : <Redirect to='/home'/>}} />
+              <Route exact path="/" render={() => { return !this.state.loggedInUser ? 
+                <HomeDes fetchUser={this.fetchUser} /> : <Redirect to='/home'/>}} />
               <ProtectedRoute fetchUser={this.fetchUser} user={this.state.loggedInUser} exact path="/home" component={HomeLog}/>
               <Route exact path="/signup" render={() => { return !this.state.loggedInUser ? 
-              <Signup getUser={this.setUser} /> : <Redirect to='/home'/>}} />
-              <ProtectedRoute user={this.state.loggedInUser} path='/components/user/Profile.jsx' component={Profile}/>
-              <ProtectedRoute user={this.state.loggedInUser} path='/components/user/Pets.jsx' component={Pets}/>
-            <ProtectedRoute user={this.state.loggedInUser} path='./components/establishments/MyEstablishments.jsx' component={MyEstablishments}/>
+                <Signup getUser={this.setUser} /> : <Redirect to='/home'/>}} />
+              <ProtectedRoute user={this.state.loggedInUser} path='/profile' component={Profile}/>
+              <ProtectedRoute user={this.state.loggedInUser} path='/pets' component={Pets}/>
+              <ProtectedRoute user={this.state.loggedInUser} path='/my-establishments' component={MyEstablishments}/>
             </Switch>
           </BrowserRouter>
         </div>

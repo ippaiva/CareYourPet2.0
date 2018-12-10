@@ -1,5 +1,7 @@
 // Establishments
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import AddEstablishment from './AddEstablishment'
+import EstablishmentDetails from './EstablishmentDetails'
 
 class MyEstablishments extends Component {
   constructor(props) {
@@ -9,10 +11,13 @@ class MyEstablishments extends Component {
   render() {
     return (
       <div className="myestablishments">
-					<button className="button is-success" type="submit" value="Submit">Add Establishment</button>
-			</div>
-    );
-	}
+        <h1>Establishments</h1>
+        <AddEstablishment />
+        <EstablishmentDetails />
+        <button className="button is-success" type="submit" value="Submit">Add Establishment</button>
+      </div>
+    )
+  }
 }
 
 export default MyEstablishments;

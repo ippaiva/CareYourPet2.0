@@ -34,7 +34,7 @@ class Navbar extends Component {
       <div>
         {this.renderRedirect()}
         <aside className="menu">
-          <img src="img/logo.png" alt="logo" width="200px"></img>
+          <img src="img/care.png" alt="logo" width="100px"></img>
           <p className="menu-label">General</p>
           <ul className="menu-list">
             <Link to='/profile'>Profile</Link>

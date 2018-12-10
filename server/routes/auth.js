@@ -36,13 +36,13 @@ router.post('/signup', (req, res, next) => {
   || zipcode === ''
   || phone === ''
   || password === '') {
-    res.status(400).json({ message: 'aphahode' });
+    res.status(200).json({ message: 'Favor preencher todos os campos', code: 400 });
     return;
   }
 
   User.findOne({ username }, 'username', (err, user) => {
     if (user !== null) {
-      return res.status(400).json({ message: 'The username already exists' });
+      return res.status(200).json({ message: 'The username already exists', code: 400 });
     }
 
     const salt = bcrypt.genSaltSync(bcryptSalt);
@@ -69,7 +69,7 @@ router.post('/signup', (req, res, next) => {
       })
       .catch((err) => {
         console.log(err.message);
-        return res.status(400).json(err);
+        return res.status(200).json({ message: 'Nao foi possivel salvar o usuario', code: 400 });
       });
   });
 });

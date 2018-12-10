@@ -1,28 +1,51 @@
-// Establishments
-import React, { Component } from "react";
+import React, {Component} from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-class EstablishmentsDetails extends Component {
-  constructor(props) {
-    super(props);
+import AddEstablishment from './AddEstablishment'
+
+class EstablishmentList extends Component {
+    constructor(props){
+        super(props);
+        this.state = { 
+          listOfEstablishments: []
+        };
+    }
+  
+    getAllEstablishments = () =>{
+      axios.get(`http://localhost:5000/${this.props.loggedInUser._id}`, {withCredentials:true})
+      .then(responseFromEstablishments => {
+        this.setState({
+          listOfEstablishments: responseFromEstablishments.data
+        })
+      })
+    }
+  
+    componentDidMount() {
+      this.getAllEstablishments();
+    }
+  
+    render(){
+      return(
+        <div>
+          <div style={{width: '60%', float:"left"}}>
+            { this.state.listOfEstablishments.map(establishment => {
+              return (
+                <div key={establishment._id}>
+                  <Link to={`/${establishment._id}`}>
+                    <h3>{establishment.name}</h3>
+                  </Link>
+                  <p style={{maxWidth: '400px'}} >{establishment.description} </p>
+                </div>
+              )})
+            }
+          </div>
+          <div style={{width: '40%', float:"right"}}>
+              <AddEstablishment getData={this.getAllEstablishments}/>
+          </div>
+        </div>
+      )
+    }
   }
 
-  render() {
-    return (
-      <div className="establishmentsdetails">
-        <h1>Name Of Establishment</h1>
-				<div>
-					<h3>Descrição</h3>
-					<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eum quos optio perspiciatis error, blanditiis corporis cumque ad provident delectus, explicabo quia. Praesentium voluptate similique nesciunt voluptatibus, corrupti laboriosam architecto!</span>
-					<span>serviços</span>
-					<ul>
-						<li>*</li>
-						<li>*</li>
-						<li>*</li>
-					</ul>
-				</div>
-      </div>
-    );
-  }
-}
-
-export default EstablishmentsDetails;
+export default EstablishmentList;
