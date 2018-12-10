@@ -28,13 +28,12 @@ class AddEstablishment extends Component {
   handleChange = (event) => {
 
       const {name, value} = event.target;
-    
+      console.log(event);
       this.setState({[name]: value});
   }
 
   render(){
     return(
-  
       <div className="add-establishment">
         <div>
           <form onSubmit={this.handleFormSubmit}>
@@ -46,7 +45,14 @@ class AddEstablishment extends Component {
             <input className="input is-rounded" name="zipcode" value={this.state.ZipCode} onChange={ e => this.handleChange(e)} />
             <label>Phone: </label>
             <input className="input is-rounded" name="phone" value={this.state.phone} onChange={ e => this.handleChange(e)} />
-            <label>Type: </label>
+            <div className="select is-rounded">
+              <select name ="Type">
+                <option value="PETSHOP">PETSHOP</option>
+                <option value="HOTEL">HOTEL</option>
+                <option value="VETERINARIO">VETERINÁRIO</option>
+                <option value="OUTROS">OUTROS</option>
+              </select>
+            </div>      
             <input className="input is-rounded" name="type" value={this.state.type} onChange={ e => this.handleChange(e)} />
             <label>Services: </label>
             <input className="input is-rounded" name="services" value={this.state.services} onChange={ e => this.handleChange(e)} />
