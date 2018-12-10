@@ -26,7 +26,7 @@ const HomeLog = (props) => {
           <Card />
           <Card />
 
-        </div>
+          </div>
         </div>
 
     </div>  

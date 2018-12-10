@@ -87,3 +87,11 @@
   display: flex;
   flex-direction: column;
 }
+
+.navbar {
+  height: 10%;
+  display: absolute;
+  margin: 0;
+  padding: 0;
+
+}

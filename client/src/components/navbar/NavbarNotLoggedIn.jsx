@@ -10,13 +10,16 @@ class NavbarNotLoggedIn extends Component {
 
   render() {
     return (
-      <nav className="navbar" role="navigation" aria-label="main navigation">
-        <div className="navbar-brand">
-          <a className="navbar-item" href="/home">
-            <img src="/img/care.png" alt="logo" height="100%"></img>
-          </a>
-        </div>
-      </nav>
+      // <nav className="navbar" role="navigation" aria-label="main navigation">
+      //   <div className="navbar-brand">
+      //     <a className="navbar-item" href="/home">
+      //       <img src="/img/care.png" alt="logo" height="100%"></img>
+      //     </a>
+      //   </div>
+      // </nav>
+      <div className="navbar">
+        <img src="/img/care.png" alt="logo"/>
+      </div>
     );
   }
 }
