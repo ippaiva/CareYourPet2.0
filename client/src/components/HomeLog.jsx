@@ -2,6 +2,8 @@ import React from 'react';
 import Navbar from './navbar/Navbar';
 import Card from './establishments/Card'
 
+//import Maps from './components/maps/maps';
+
 const HomeLog = (props) => {
     return (
       <div className="homeLog">
@@ -11,6 +13,7 @@ const HomeLog = (props) => {
         </div>
 
         <div className="groupImage">
+          {/* <Maps /> */}
 
           <div>
             <img src="/img/map.png" alt="loggedImage" height=""></img>

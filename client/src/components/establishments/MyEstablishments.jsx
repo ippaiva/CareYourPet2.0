@@ -4,34 +4,17 @@ import AddEstablishment from './AddEstablishment'
 import EstablishmentDetails from './EstablishmentDetails'
 
 class MyEstablishments extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = { username: '', password: '' };
-  }
+	}
 
-  handleFormSubmit = (event) => {
-    event.preventDefault();
-    const username = this.state.username;
-    const password = this.state.password;
-    this.service.login(username, password)
-    .then( response => {
-        this.setState({ username: "", password: "" });
-        this.props.getUser(response)
-    })
-    .catch( error => console.log(error) )
-  }
-    
-  handleChange = (event) => {  
-    const {name, value} = event.target;
-    this.setState({[name]: value});
-  }
-    
-  render(){
-    return(
+  render() {
+    return (
       <div className="myestablishments">
-      <h1>Establishments</h1>
-      <AddEstablishment />
-      <EstablishmentDetails />
+        <h1>Establishments</h1>
+        <AddEstablishment />
+        <EstablishmentDetails />
+        <button className="button is-success" type="submit" value="Submit">Add Establishment</button>
       </div>
     )
   }
