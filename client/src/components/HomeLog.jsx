@@ -1,8 +1,6 @@
 import React from 'react';
 import Navbar from './navbar/Navbar';
 import Card from './establishments/Card'
-
-import React, { Component } from "react";
 //import Maps from './components/maps/maps';
 
 const HomeLog = (props) => {
@@ -30,9 +28,9 @@ const HomeLog = (props) => {
           <Card />
 
         </div>
+        </div> 
         </div>
-
-    </div>  
+        </div> 
     )
 
 }
