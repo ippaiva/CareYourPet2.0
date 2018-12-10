@@ -24,7 +24,6 @@ class HomeLog extends Component {
         </div>
 
         <div className="card">
-
           {/* Card Component */}
           <div className="hero">
             <div className="card">
