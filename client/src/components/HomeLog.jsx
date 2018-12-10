@@ -6,10 +6,15 @@ class HomeLog extends Component {
   render() {
     return (
       <div className="homeLog">
+        <div className="">
+          <div className="sidebar">
+            <Navbar fetchUser={this.props.fetchUser} />
+          </div>
 
-        <div className="sidebar">
-          <Navbar fetchUser={this.props.fetchUser} />
-        </div>
+          <div>
+            <img src="/img/mountains.jpg" alt="loggedImage" height=""></img>
+            <input className="input" type="text" placeholder="Search"></input>
+          </div>
 
         <div id="map">
           {/* <Maps/> */}
@@ -17,8 +22,8 @@ class HomeLog extends Component {
           <img src="/img/mountains.jpg" alt="loggedImage" height=""></img>
           <input className="input" type="text" placeholder="Search"></input>
         </div>
-        
-        <div>
+
+        <div className="card">
 
           {/* Card Component */}
           <div className="hero">
