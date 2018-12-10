@@ -49,7 +49,7 @@ class App extends Component {
   render() {
       return (
         <div className="App">
-          <NavbarNotLoggedIn />
+          <NavbarNotLoggedIn/>
           <BrowserRouter>
             <Switch>
             <Route exact path="/" render={() => { return !this.state.loggedInUser ? 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './navbar/Navbar';
+//import Maps from './components/maps/maps';
 
 class HomeLog extends Component {
   render() {
@@ -10,7 +11,9 @@ class HomeLog extends Component {
           <Navbar fetchUser={this.props.fetchUser} />
         </div>
 
-        <div>
+        <div id="map">
+          {/* <Maps/> */}
+          
           <img src="/img/mountains.jpg" alt="loggedImage" height=""></img>
           <input className="input" type="text" placeholder="Search"></input>
         </div>
