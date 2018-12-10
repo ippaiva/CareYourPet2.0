@@ -19,7 +19,7 @@ class AddEstablishment extends Component {
   
     axios.post("http://localhost:5000/establishments/create", { EstablishmentName, Address, ZipCode, Phone, Type, Services, WorkingHour }, {withCredentials:true})
     .then( () => {
-        this.props.getData();
+        // this.props.getData();
         this.setState({ establishmentName: "", address: "", zipCode: "", phone: "", type: "", services: "", workingHours: "" });
     })
     .catch( error => console.log(error) )

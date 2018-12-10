@@ -1,5 +1,7 @@
 // Establishments
 import React, { Component } from 'react';
+import AddEstablishment from './AddEstablishment'
+import EstablishmentDetails from './EstablishmentDetails'
 
 class MyEstablishments extends Component {
   constructor(props){
@@ -28,6 +30,8 @@ class MyEstablishments extends Component {
     return(
       <div className="myestablishments">
       <h1>Establishments</h1>
+      <AddEstablishment />
+      <EstablishmentDetails />
       </div>
     )
   }

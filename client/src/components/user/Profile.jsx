@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Navbar from '../navbar/Navbar';
 
-class Profile extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      username: '',
-      password: ''
-    };
-  }
-  render() {
-    return (
-      <div>
-        <Navbar />
-        <h1>ROMULOBICHAO PROFILES</h1>
-      </div>
-    )
-  }
+const Profile = (props) => {
+  return (
+    <div>
+      <Navbar />
+      <form className="form">
+        <h1>My Profile</h1>
+        Username: <input type="text" name="Username" value="" />
+        Name: <input type="text" name="Name" value="" />
+        Last Name: <input type="text" name="LastName" value="" />
+        Email: <input type="text" name="Email" value="" />
+        Phone: <input type="text" name="Phone" value="" />
+        Zipcode: <input type="text" name="Zipcode" value="" />
+        Address: <input type="text" name="Address" value="" />
+      </form>
+    </div>
+  )
 }
 
 export default Profile;
