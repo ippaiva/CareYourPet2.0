@@ -16,6 +16,7 @@ const HomeLog = props => {
         
         <div id="map">
           <Maps />
+          <img src="/img/map.png" alt="loggedImage" height="" />
           <input className="input is-small" type="text" placeholder="Search" />
         </div>
 
