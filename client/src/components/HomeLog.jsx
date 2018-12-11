@@ -22,7 +22,7 @@ const HomeLog = (props) => {
 
           <div className="carol">
 
-          <Card service={props.service}/>
+          <Card />
           <Card />
           <Card />
 

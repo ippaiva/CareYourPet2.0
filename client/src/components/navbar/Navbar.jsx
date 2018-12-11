@@ -41,7 +41,7 @@ class Navbar extends Component {
             <Link to='/pets'>My Pets</Link>
             <Link to='/my-establishments'>My Establishments</Link>
           </ul>
-          <button onClick={this.logout} type="submit" name="logout" className="button is-link is-small">Logout</button>
+          <button onClick={this.logout} type="submit" name="logout" className="button is-warning is-small">Logout</button>
         </aside>
       </div>
     );

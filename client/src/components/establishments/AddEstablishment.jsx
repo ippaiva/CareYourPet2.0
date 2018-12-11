@@ -4,7 +4,15 @@ import axios from 'axios';
 class AddEstablishment extends Component {
   constructor(props){
       super(props);
-      this.state = { establishmentName: "", address: "", zipCode:"", phone:"", type:"", services:[], workingHours:[]};
+      this.state = { 
+        establishmentName: "",
+        address: "",
+        zipCode:"",
+        phone:"",
+        type:"",
+        services:[],
+        workingHours:[]
+      };
   }
    
   handleFormSubmit = (event) => {
@@ -20,13 +28,20 @@ class AddEstablishment extends Component {
     axios.post("http://localhost:5000/establishments/create", { EstablishmentName, Address, ZipCode, Phone, Type, Services, WorkingHour }, {withCredentials:true})
     .then( () => {
         // this.props.getData();
-        this.setState({ establishmentName: "", address: "", zipCode: "", phone: "", type: "", services: "", workingHours: "" });
+        this.setState({
+          establishmentName: "",
+          address: "",
+          zipCode: "",
+          phone: "",
+          type: "",
+          services: "",
+          workingHours: ""
+        });
     })
     .catch( error => console.log(error) )
   }
 
   handleChange = (event) => {
-
       const {name, value} = event.target;
       console.log(event);
       this.setState({[name]: value});
@@ -58,7 +73,7 @@ class AddEstablishment extends Component {
             <input className="input is-rounded" name="services" value={this.state.services} onChange={ e => this.handleChange(e)} />
             <label>Working Hour: </label>
             <input className="input is-rounded"  name="workingHours" value={this.state.workingHours} onChange={ e => this.handleChange(e)} />
-            <button className="button is-primary" type="submit" value="Submit">Gravar</button>
+            <button className="button is-primary" type="submit" value="Submit" onClick={this.props.callbackFromParent}>Gravar</button>
           </form>
         </div>
       </div>

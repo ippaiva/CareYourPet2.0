@@ -51,7 +51,7 @@ class Login extends Component {
         {this.renderRedirect()}
         <form onSubmit={this.handleFormSubmit}>
           <InputText label="Username:" fieldName="username" placeHolder="French Bulldog" value={this.state.username} handleChange={this.handleChange} />
-          <InputText label="Password:" fieldName="password" placeHolder="I'm cute!" value={this.state.password} handleChange={this.handleChange} />
+          <InputText label="Password:" fieldName="password" placeHolder="hackYourLife" value={this.state.password} handleChange={this.handleChange} />
           <button className="button is-warning" type="submit" value="Login">Login</button>
         </form>
       </div>

@@ -6,7 +6,6 @@ import ProtectedRoute from "./components/auth/protected-route";
 import HomeDes from "./components/HomeDes";
 import HomeLog from "./components/HomeLog";
 import Signup from "./components/auth/Signup";
-import NavbarNotLoggedIn from "./components/navbar/NavbarNotLoggedIn";
 import Profile from "./components/user/Profile";
 import Pets from "./components/user/Pets";
 import MyEstablishments from "./components/establishments/MyEstablishments";
@@ -14,10 +13,12 @@ import MyEstablishments from "./components/establishments/MyEstablishments";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { loggedInUser: "", serverResponse: false };
+    this.state = { loggedInUser: "", serverResponse: false, establishmentName: "", address: "", zipCode: "", phone: "", type: "", services: "", workingHours: ""};
     this.service = new AuthService();
     this.fetchUser = this.fetchUser.bind(this);
     this.setUser = this.setUser.bind(this);
+
+    console.log(this.test);
   }
 
   fetchUser = () => {
@@ -46,10 +47,22 @@ class App extends Component {
     this.fetchUser();
   }
 
+  updateGrandparent(a, b, c, d, e, f, g) {
+    this.setState = {
+      establishmentName: a,
+      address: b,
+      zipCode: c,
+      phone: d,
+      type: e,
+      services: f,
+      workingHours: g
+    }
+  }
+
   render() {
+    console.log(this.test);
       return (
         <div className="App">
-          {/* <NavbarNotLoggedIn /> */}
           <BrowserRouter>
             <Switch>
               <Route exact path="/" render={() => { return !this.state.loggedInUser ? 
@@ -59,7 +72,7 @@ class App extends Component {
                 <Signup getUser={this.setUser} /> : <Redirect to='/home'/>}} />
               <ProtectedRoute user={this.state.loggedInUser} path='/profile' component={Profile}/>
               <ProtectedRoute user={this.state.loggedInUser} path='/pets' component={Pets}/>
-              <ProtectedRoute user={this.state.loggedInUser} path='/my-establishments' component={MyEstablishments}/>
+              <ProtectedRoute user={this.state.loggedInUser} updateGrandparent={this.updateGrandparent} path='/my-establishments' component={MyEstablishments} />
             </Switch>
           </BrowserRouter>
         </div>
