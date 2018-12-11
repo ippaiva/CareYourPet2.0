@@ -1,25 +1,25 @@
-import React from 'react';
-import Navbar from './navbar/Navbar';
-import Card from './establishments/Card'
+import React from "react";
+import Navbar from "./navbar/Navbar";
+import Card from "./establishments/Card";
+import Maps from './maps/Maps';
 
-//import Maps from './components/maps/maps';
+//import Maps from './components/maps/Maps';
 
-const HomeLog = (props) => {
-    return (
-      <div className="homeLog">
+const HomeLog = props => {
+  return (
+    <div className="homeLog">
+      <div className="sidebar">
+        <Navbar fetchUser={props.fetchUser} />
+      </div>
 
-        <div className="sidebar">
-          <Navbar fetchUser={props.fetchUser} />
+      <div className="groupImage">
+        
+        <div id="map">
+          <Maps />
+          <input className="input is-small" type="text" placeholder="Search" />
         </div>
 
-        <div className="groupImage">
-          {/* <Maps /> */}
-
-          <div>
-            <img src="/img/map.png" alt="loggedImage" height=""></img>
-            <input className="input is-small" type="text" placeholder="Search"></input>
-          </div>
-
+        <div>
           <div className="carol">
 
           <Card />
@@ -28,10 +28,9 @@ const HomeLog = (props) => {
 
           </div>
         </div>
-
-    </div>  
-    )
-
-}
+      </div>
+    </div>
+  );
+};
 
 export default HomeLog;
