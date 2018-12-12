@@ -30,7 +30,7 @@ export class MapContainer extends Component {
     const {google} = mapProps;
 
     const service = new google.maps.places.PlacesService(map);
-    // ...
+    // ...nearby()
   }
 
   mapClicked(mapProps, map, clickEvent) {
