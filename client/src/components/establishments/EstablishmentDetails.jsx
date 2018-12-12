@@ -37,6 +37,7 @@ import Service from '../auth/auth-service';
                   <h3>Type: {establishment.type}</h3>
                   <h3>Services: {establishment.services}</h3>
                   <h3>Working Hours: {establishment.workingHours}</h3>
+                  <h3>Site:<a href = {establishment.site}/></h3>
                 </div>
               </div>
               );

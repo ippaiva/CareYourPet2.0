@@ -12,7 +12,8 @@ class AddEstablishment extends Component {
         phone:"",
         type:"",
         services:[],
-        workingHours:[]
+        workingHours:[],
+        site:""
       };
   }
    
@@ -25,8 +26,9 @@ class AddEstablishment extends Component {
     const Type = this.state.type;
     const Services = this.state.services;
     const WorkingHour = this.state.workingHours;
+    const Site = this.state.site
   
-    axios.post("http://localhost:5000/establishments/create", { EstablishmentName, Address, ZipCode, Phone, Type, Services, WorkingHour }, {withCredentials:true})
+    axios.post("http://localhost:5000/establishments/create", { EstablishmentName, Address, ZipCode, Phone, Type, Services, WorkingHour, Site }, {withCredentials:true})
     .then( () => {
         // this.props.getData();
         this.setState({
@@ -36,7 +38,8 @@ class AddEstablishment extends Component {
           phone: "",
           type: "",
           services: "",
-          workingHours: ""
+          workingHours: "",
+          site:""
         });
     })
     .catch( error => console.log(error) )
@@ -78,6 +81,7 @@ class AddEstablishment extends Component {
             </div> 
             <label>Working Hour: </label>
             <input className="input is-rounded"  name="workingHours" value={this.state.workingHours} onChange={ e => this.handleChange(e)} />
+            <input className="input is-rounded"  name="site" value={this.state.site} onChange={ e => this.handleChange(e)} />
             <button className="button is-warning is-small" type="submit" value="Submit" onClick={this.props.callbackFromParent}>Submit</button>
           </form>
         </div>
