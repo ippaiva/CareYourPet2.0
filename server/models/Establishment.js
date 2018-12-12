@@ -10,7 +10,8 @@ const establishmentSchema = new Schema({
   phone: Number,
   type: { type: String, enum: ['PETSHOP', 'HOTEL', 'VETERINARIO', 'OUTROS'] },
   services: [String],
-  workingHours: [{ day: String, hours: [String] }]
+  workingHours: String,
+  site: String
 },
 {
   timestamps: true
