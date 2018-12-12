@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import EstablishmentDetails from './EstablishmentDetails'
 import { Link } from 'react-router-dom';
+import Navbar from '../navbar/Navbar'
 
 class MyEstablishments extends Component {
   render() {
     return (
-      <div className="myEstablishments">
+      <div className="sidebarContainer">
+        
+        <div className="sidebar" >
+          <Navbar />
+        </div>
 
-        <img src="/img/care.png" alt="logo" width="100px" className="logo"/>
-      
+        {/* <img src="/img/care.png" alt="logo" width="100px" className="logo"/> */}
 
         <div className="myEstabBody">
           <div >
@@ -16,7 +20,6 @@ class MyEstablishments extends Component {
             <EstablishmentDetails user={this.props.loggedInUser} />
             <Link to='/add-establishment' className="button is-warning is-small">Add Establishment</Link>
           </div>
-
         </div>
       
       </div>

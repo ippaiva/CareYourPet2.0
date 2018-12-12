@@ -14,7 +14,18 @@ import AddEstablishment from "./components/establishments/AddEstablishment";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { loggedInUser: "", serverResponse: false, establishmentName: "", address: "", zipCode: "", phone: "", type: "", services: "", workingHours: ""};
+    this.state = {
+      loggedInUser: "",
+      serverResponse: false,
+      establishmentName: "",
+      address: "",
+      zipCode: "",
+      phone: "",
+      type: "",
+      services: "",
+      workingHours: "",
+
+    };
     this.service = new AuthService();
     this.fetchUser = this.fetchUser.bind(this);
     this.setUser = this.setUser.bind(this);
@@ -71,7 +82,7 @@ class App extends Component {
               <ProtectedRoute fetchUser={this.fetchUser} user={this.state.loggedInUser} exact path="/home" component={HomeLog}/>
               <Route exact path="/signup" render={() => { return !this.state.loggedInUser ? 
                 <Signup getUser={this.setUser} /> : <Redirect to='/home'/>}} />
-              <ProtectedRoute user={this.state.loggedInUser} path='/profile' component={Profile}/>
+              <ProtectedRoute user={this.state.loggedInUser} path='/profile' fetchUser={this.fetchUser} component={Profile}/>
               <ProtectedRoute user={this.state.loggedInUser} path='/pets' component={Pets}/>
               <ProtectedRoute user={this.state.loggedInUser} updateGrandparent={this.updateGrandparent} path='/my-establishments' component={MyEstablishments} />
               <ProtectedRoute user={this.state.loggedInUser} path='/add-establishment' component={AddEstablishment}/>

@@ -22,6 +22,7 @@ class Profile extends Component {
     this.setState({[name]: value});
     console.log(this.state)
 }
+
   render() {
     return (
       <div className="sidebarContainerProfile">

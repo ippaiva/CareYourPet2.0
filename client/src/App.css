@@ -137,8 +137,7 @@
 /* MyEstablishments.jsx */
 
 .myEstablishments {
-height: 680px;
-
+  height: 680px;
 }
 
 .myEstabTitle {
@@ -149,15 +148,25 @@ height: 680px;
 .myEstabBody {
   background-image: url('/img/sky.jpg');
   background-size: cover;
-  height: 620px;
+  height: 680px;
+  width: 100%;
   padding: 20px;
 }
 
 /* AddEstablishments.jsx */
 
-.add-establishment {
-
+.addEstabFormContainer {
+  width: 100%;
+  background-image: url('/img/paintedWall.jpg');
+  background-size: cover;
 }
+
+.addEstabForm {
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+}
+
 
 /* Profile.jsx */
 

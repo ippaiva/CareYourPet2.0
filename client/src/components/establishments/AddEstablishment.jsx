@@ -54,10 +54,17 @@ class AddEstablishment extends Component {
 
   render(){
     return(
-      <div className="add-establishment">
-      <Navbar className="sidebar" />
-        <div>
-          <form onSubmit={this.handleFormSubmit}>
+      <div className="sidebarContainer">
+        
+        <div className="sidebar" >
+          <Navbar />
+        </div>
+
+        <div className="addEstabFormContainer">
+        <h1 className="title is-1">Add a New Establishment</h1>
+
+          <form onSubmit={this.handleFormSubmit} className="addEstabForm">
+
             <label>Establishment Name: </label>
             <input className="input is-rounded" type="text" name="establishmentName" value={this.state.establishmentName} onChange={ e => this.handleChange(e)}/>
             <label>Address:</label>
@@ -66,6 +73,7 @@ class AddEstablishment extends Component {
             <input className="input is-rounded" name="zipcode" value={this.state.ZipCode} onChange={ e => this.handleChange(e)} />
             <label>Phone: </label>
             <input className="input is-rounded" name="phone" value={this.state.phone} onChange={ e => this.handleChange(e)} />
+
             <div className="select is-rounded is-small">
               <select name ="type" onChange={ e => this.handleChange(e)} value={this.state.type}>
                 <option value="">Type of Establishment...</option>
@@ -75,14 +83,17 @@ class AddEstablishment extends Component {
                 <option value="OUTROS">OTHERS</option>
               </select>
             </div>
+
             <div>     
-            <label>Services: </label>
-            <input className="input is-rounded" name="services" value={this.state.services} onChange={ e => this.handleChange(e)} />
+              <label>Services: </label>
+              <input className="input is-rounded" name="services" value={this.state.services} onChange={ e => this.handleChange(e)} />
             </div> 
-            <label>Working Hour: </label>
+
+            <label>Working Hours: </label>
             <input className="input is-rounded"  name="workingHours" value={this.state.workingHours} onChange={ e => this.handleChange(e)} />
             <input className="input is-rounded"  name="site" value={this.state.site} onChange={ e => this.handleChange(e)} />
             <button className="button is-warning is-small" type="submit" value="Submit" onClick={this.props.callbackFromParent}>Submit</button>
+          
           </form>
         </div>
       </div>
