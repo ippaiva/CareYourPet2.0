@@ -57,6 +57,16 @@ router.get('/all/:id', (req, res) => {
     });
 });
 
+// Get all establishments
+router.get('/allEst/list', (req, res) => {
+  console.log('back truta');
+  Establishment.find()
+    .then(establishments => res.status(200).json(establishments))
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 // PUT route => to update a specific establishment
 router.put('/:id', (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {

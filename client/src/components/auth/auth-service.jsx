@@ -34,6 +34,11 @@ class AuthService {
       .then(response => response)
   }
 
+  getAllEstablishments = () => {
+    return this.service.get(`/establishments/allEst/list`)
+      .then(response => response);
+  }
+
   getEstablishments = (id) => {
     return this.service.get(`/establishments/all/${id}`)
       .then(response => response);

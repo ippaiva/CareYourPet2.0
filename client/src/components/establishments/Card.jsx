@@ -4,8 +4,9 @@ const Card = (props) => {
     return (
        <div className="host">
         <div>
-           <h1>Petshop</h1>
-           <p>Serviços</p>
+           <h1>{props.establishmentName}</h1>
+           <p>{props.type}</p>
+           <p>{props.services}</p>
            <p>Horário de Funcionamento</p>
            <a href="https://www.kcsp.com.br">Visit Us</a>
         </div>
