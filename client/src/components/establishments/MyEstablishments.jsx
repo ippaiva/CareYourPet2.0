@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
-import AddEstablishment from './AddEstablishment'
 import EstablishmentDetails from './EstablishmentDetails'
 import { Link } from 'react-router-dom';
 
 class MyEstablishments extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
-      <div className="myestablishments">
-        <h1>Establishments</h1>
-        {/* <AddEstablishment loggedInUser={this.props.user} callbackFromParent={this.props.updateGrandparent}  /> */}
-        <EstablishmentDetails user={this.props.loggedInUser} />
-				<Link to='/add-establishment'>Add Establishment</Link>
-        <button className="button is-success" type="submit" value="Submit">Add Establishment</button>
+      <div className="myEstablishments">
+
+        <img src="/img/care.png" alt="logo" width="100px" className="logo"/>
+      
+
+        <div className="myEstabBody">
+          <div >
+            <h1 className="title is-1">My Establishments</h1>
+            <EstablishmentDetails user={this.props.loggedInUser} />
+            <Link to='/add-establishment' className="button is-warning is-small">Add Establishment</Link>
+          </div>
+
+        </div>
+      
       </div>
     )
   }

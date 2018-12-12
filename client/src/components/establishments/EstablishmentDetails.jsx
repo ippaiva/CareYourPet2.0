@@ -25,23 +25,18 @@ import Service from '../auth/auth-service';
 
    render() {
     return (
-      <div className="establishmentsdetails">
+      <div>
         {this.state.errorMessage}
         {
           this.state.establishments.map(establishment => {
             console.log(establishment);
             return (
-              <div key={establishment._id}>
-                <h1>Name Of Establishment: {establishment.establishmentName}</h1>
-                <div>
-                  <h3>Descrição</h3>
-                  <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eum quos optio perspiciatis error, blanditiis corporis cumque ad provident delectus, explicabo quia. Praesentium voluptate similique nesciunt voluptatibus, corrupti laboriosam architecto!</span>
-                  <span>serviços</span>
-                  <ul>
-                    <li>*</li>
-                    <li>*</li>
-                    <li>*</li>
-                  </ul>
+              <div key={establishment._id} className="establishmentsdetails">
+                <div className="estabUserDetails">
+                  <h1>Name of Establishment: {establishment.establishmentName}</h1>
+                  <h3>Type: {establishment.type}</h3>
+                  <h3>Services: {establishment.services}</h3>
+                  <h3>Working Hours: {establishment.workingHours}</h3>
                 </div>
               </div>
               );
