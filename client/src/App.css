@@ -1,7 +1,9 @@
 * {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   font-family: 'Josefin Sans', sans-serif;
 }
+
+/* App.js */
 
 .App {
   text-align: center;
@@ -39,22 +41,35 @@
   }
 }
 
+.logo {
+  margin: auto;
+}
 
-.homeLog {
+/* HomeLog.jsx */
+
+.sidebarContainer {
   display: flex;
-  flex-direction: ;
 }
 
 .groupImage {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  
 }
 
-.card {
-  width: 30%;
+.map {
+  height: 350px;
+}
+
+.serachAndCard {
+  display: flex;
+  flex-direction: row;
+}
+
+.host {
+  margin: 20px;
   padding: 20px;
+  outline: solid;
 }
 
 .menu-list {
@@ -64,34 +79,85 @@
 .HomeNoUser {
   background-image: url('/img/fur.jpg');
   background-size: cover;
-  height: 635px;
-  padding-top: 150px;
+  height: 700px;
 }
 
 .outterDiv {
   width: 50%;
-  margin: auto;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 25px;
-  /* color: white; */
+  margin-top: 10%;
+  margin-left: 25%;
   padding: 20px;
 };
 
-.carol {
- /* display: flex; */
- flex-direction: column;
- margin: 10px;
+.form {
+
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
+.form input {
+  width: 100%;
+  padding: 08px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.formContainer {
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .navbar {
   height: 10%;
-  display: absolute;
+  position: fixed;
   margin: 0;
   padding: 0;
+}
+
+
+
+/* EstablishmentDetails.jsx */
+
+.establishmentsDetails {
+  width: 40%;
+}
+
+.estabUserDetails {
+  width: 40%;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 25px;
+  /* color: brown; */
+}
+
+/* MyEstablishments.jsx */
+
+.myEstablishments {
+height: 680px;
+
+}
+
+.myEstabTitle {
+  height: 10%;
+  position: static;
+}
+
+.myEstabBody {
+  background-image: url('/img/sky.jpg');
+  background-size: cover;
+  height: 620px;
+  padding: 20px;
+}
+
+/* AddEstablishments.jsx */
+
+.add-establishment {
 
 }

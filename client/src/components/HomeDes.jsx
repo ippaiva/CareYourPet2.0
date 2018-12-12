@@ -21,3 +21,4 @@ class HomeNoUser extends Component {
 }
 
   export default HomeNoUser;
+  

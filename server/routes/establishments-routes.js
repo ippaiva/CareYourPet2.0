@@ -48,6 +48,15 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
+// Get all establishments from the user
+router.get('/all/:id', (req, res) => {
+  Establishment.find({ owner: req.params.id })
+    .then(establishments => res.status(200).json(establishments))
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 // PUT route => to update a specific establishment
 router.put('/:id', (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {

@@ -2,9 +2,9 @@ import React from 'react';
 
 const Card = (props) => {
     return (
-       <div className="card">
+       <div className="host">
         <div>
-           <h1>{props.service}</h1>
+           <h1>Petshop</h1>
            <p>Serviços</p>
            <p>Horário de Funcionamento</p>
 
