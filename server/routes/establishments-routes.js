@@ -16,7 +16,8 @@ router.post('/create', (req, res, next) => {
     phone: req.body.Phone,
     type: req.body.Type,
     services: req.body.Services,
-    workingHour: req.body.WorkingHour,
+    workingHours: req.body.WorkingHour,
+    site: req.body.Site
   })
     .then((response) => {
       console.log(response);

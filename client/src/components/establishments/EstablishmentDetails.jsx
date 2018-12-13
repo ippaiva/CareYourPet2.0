@@ -39,7 +39,7 @@ import { Link } from 'react-router-dom';
                   <h3>Type: {establishment.type}</h3>
                   <h3>Services: {establishment.services}</h3>
                   <h3>Working Hours: {establishment.workingHours}</h3>
-                  <Link to={() => establishment.site ? establishment.site : ''}>Site: </Link>
+                  <Link to={() => establishment.site ? establishment.site : ''}>Site: {establishment.site} </Link>
                 </div>
               </div>
               );
