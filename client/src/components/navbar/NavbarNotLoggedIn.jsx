@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import AuthService from "../auth/auth-service";
 
 class NavbarNotLoggedIn extends Component {
@@ -11,7 +11,7 @@ class NavbarNotLoggedIn extends Component {
   render() {
     return (
       <div className="navbar">
-        <img src="/img/care.png" alt="logo" width="100px" className="logo"/>
+        <img src="/img/care.png" alt="logo" width="100px" className="logo" />
       </div>
     );
   }

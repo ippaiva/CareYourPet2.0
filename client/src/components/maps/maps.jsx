@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
 import CurrentLocation from "./CurrentLocation";
 
-
 export class MapContainer extends Component {
   constructor() {
     super();
@@ -46,31 +45,44 @@ export class MapContainer extends Component {
     return (
       <CurrentLocation centerAroundCurrentLocation google={this.props.google}>
         <Marker
-        onClick={this.onMarkerClick} 
-        name={"I'm Here!!"} 
-        icon = {{url:'/img/dog-head.png'}}/>
-   
-        <Marker
           onClick={this.onMarkerClick}
-          name={"PETZ AUGUSTA"}
-          position={{ lat: -23.561954, lng: -46.664894 }}
-        />
-        <Marker
-          onClick={this.onMarkerClick}
-          name={"MASP SP"}
-          position={{ lat: -23.560627, lng: -46.655796 }}
+          name={"I'm Here!!"}
+          icon={{ url: "/img/dog-head.png" }}
         />
 
         <Marker
           onClick={this.onMarkerClick}
-          name={"COBASI"}
-          position={{ lat: -23.54061, lng: -46.688789 }}
+          name={"Petz Augusta"}
+          position={{ lat: -23.561954, lng: -46.664894 }}
         />
-  
         <Marker
           onClick={this.onMarkerClick}
-          name={"MAMAPET"}
-          position={{ lat: -23.559218, lng: -46.664949 }}
+          name={"Pet Gardens Club"}
+          position={{ lat: -23.564725, lng: -46.655379 }}
+        />
+
+        <Marker
+          onClick={this.onMarkerClick}
+          name={"Cobasi Augusta"}
+          position={{ lat: -23.54061, lng: -46.688789 }}
+        />
+
+        <Marker
+          onClick={this.onMarkerClick}
+          name={"Encrenquinhas Pet Shop"}
+          position={{ lat: -23.567656, lng: -46.658641 }}
+        />
+
+        <Marker
+          onClick={this.onMarkerClick}
+          name={"Pet Shop Haddog & Co."}
+          position={{ lat: -23.55423, lng: -46.657682 }}
+        />
+
+        <Marker
+          onClick={this.onMarkerClick}
+          name={"General Au Au Pet Shop"}
+          position={{ lat: -23.544543, lng: -46.647418 }}
         />
 
         <InfoWindow
