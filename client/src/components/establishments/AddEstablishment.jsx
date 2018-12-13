@@ -54,7 +54,7 @@ class AddEstablishment extends Component {
 
   render(){
     return(
-      <div className="sidebarContainer">
+      <div className="addEstabSidebarContainer">
         
         <div className="sidebar" >
           <Navbar />
@@ -75,7 +75,7 @@ class AddEstablishment extends Component {
             <input className="input is-rounded" name="phone" value={this.state.phone} onChange={ e => this.handleChange(e)} />
 
             <div className="select is-rounded is-small">
-              <select name ="type" onChange={ e => this.handleChange(e)} value={this.state.type}>
+              <select name ="type" onChange={ e => this.handleChange(e)} value={this.state.type} >
                 <option value="">Type of Establishment...</option>
                 <option value="PETSHOP">PETSHOP</option>
                 <option value="HOTEL">HOTEL</option>
@@ -91,6 +91,8 @@ class AddEstablishment extends Component {
 
             <label>Working Hours: </label>
             <input className="input is-rounded"  name="workingHours" value={this.state.workingHours} onChange={ e => this.handleChange(e)} />
+            
+            <label>Website: </label>
             <input className="input is-rounded"  name="site" value={this.state.site} onChange={ e => this.handleChange(e)} />
             <button className="button is-warning is-small" type="submit" value="Submit" onClick={this.props.callbackFromParent}>Submit</button>
           

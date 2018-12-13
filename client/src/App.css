@@ -1,5 +1,5 @@
 * {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -49,6 +49,7 @@
 
 .sidebarContainer {
   display: flex;
+
 }
 
 .groupImage {
@@ -61,9 +62,10 @@
   height: 350px;
 }
 
-.serachAndCard {
+.searchAndCard {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  width: 600px;
 }
 
 .host {
@@ -155,6 +157,11 @@
 
 /* AddEstablishments.jsx */
 
+.addEstabSidebarContainer {
+  display: flex;
+  height: 680px;
+}
+
 .addEstabFormContainer {
   width: 100%;
   background-image: url('/img/paintedWall.jpg');
@@ -165,7 +172,12 @@
   width: 50%;
   margin: auto;
   margin-top: 20px;
+  /* color: white; */
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 25px;
+  padding: 20px;
 }
+
 
 
 /* Profile.jsx */

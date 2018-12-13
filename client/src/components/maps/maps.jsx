@@ -26,12 +26,12 @@ export class MapContainer extends Component {
     }
   };
 
-  fetchPlaces(mapProps, map) {
-    const {google} = mapProps;
+  // fetchPlaces(mapProps, map) {
+  //   const {google} = mapProps;
 
-    const service = new google.maps.places.PlacesService(map);
-    // ...nearby()
-  }
+  //   const service = new google.maps.places.PlacesService(map);
+  //   ...nearby()
+  // }
 
   mapClicked(mapProps, map, clickEvent) {
     // ...

@@ -26,8 +26,11 @@ class HomeLog extends React.Component {
       .catch(err => console.log(err));
   }
 
-  render() {
+  componentDidMount() {
     this.getAllEstablishments();
+  }
+
+  render() {
     return (
       <div className="sidebarContainer">
   
@@ -43,7 +46,7 @@ class HomeLog extends React.Component {
   
           <div className="searchAndCard">
             <input className="input is-small" type="text" placeholder="Search" />
-  
+            <div>
             {
               this.state.establishments.map(establishment => {
                 return(
@@ -51,6 +54,8 @@ class HomeLog extends React.Component {
                 );
               })
             }
+
+            </div>
           </div>
   
         </div>

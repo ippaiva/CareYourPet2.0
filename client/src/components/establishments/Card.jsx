@@ -7,7 +7,7 @@ const Card = (props) => {
            <h1>{props.establishmentName}</h1>
            <p>{props.type}</p>
            <p>{props.services}</p>
-           <p>Horário de Funcionamento</p>
+           <p>{props.workingHour}</p>
            <a href="https://www.kcsp.com.br">Visit Us</a>
         </div>
        </div>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Service from '../auth/auth-service';
+import { Link } from 'react-router-dom';
 
  class EstablishmentsDetails extends Component {
   constructor(props) {
@@ -37,7 +38,8 @@ import Service from '../auth/auth-service';
                   <h3>Type: {establishment.type}</h3>
                   <h3>Services: {establishment.services}</h3>
                   <h3>Working Hours: {establishment.workingHours}</h3>
-                  <h3>Site:<a href = {establishment.site}/></h3>
+                  <Link to={establishment.site}>Site: </Link>
+                  {/* <h3>Site:<a href = {establishment.site}/></h3> */}
                 </div>
               </div>
               );
