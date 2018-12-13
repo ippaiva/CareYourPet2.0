@@ -16,6 +16,7 @@ class AddEstablishment extends Component {
         site:""
       };
     }
+
   handleFormSubmit = event => {
     event.preventDefault();
     const EstablishmentName = this.state.establishmentName;
@@ -26,9 +27,8 @@ class AddEstablishment extends Component {
     const Services = this.state.services;
     const WorkingHour = this.state.workingHours;
     const Site = this.state.site;
-  }
 
-    axios
+    axios 
       .post(
         "http://localhost:5000/establishments/create",
         {

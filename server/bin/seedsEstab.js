@@ -14,55 +14,45 @@ mongoose
   });
 
 const establishment = [{
-  establishmentName: 'PARKSHOTEL',
-  address: 'TEST',
-  zipCode: 7114060,
-  phone: 1124403578,
+  establishmentName: 'Cobasi Augusta',
+  address: 'Rua Augusta, 2380.',
+  zipCode: 01412000,
+  phone: 1138318999,
+  type: 'PETSHOP',
+  services: 'Banho, Tosa, Vendas, etc.',
+  workingHours: 'SEG A SAB das 09:00 às 22:45',
+  site: 'https://www.cobasi.com.br/'
+},
+{
+  establishmentName: 'Petz Augusta',
+  address: 'Rua Augusta, 215.',
+  zipCode: 01305000,
+  phone: 1121817365,
+  type: 'PETSHOP',
+  services: 'Banho, Tosa, Vendas, etc.',
+  workingHours: 'SEG A DOM das 08:00 às 24:00',
+  site: 'https://www.petz.com.br/'
+},
+{
+  establishmentName: 'Pet Gardens Club',
+  address: 'Rua Pamplona, 834.',
+  zipCode: 01405001,
+  phone: 1145080044,
   type: 'HOTEL',
-  services: 'VET, ADESTRAMENTO, OUTROS',
+  services: 'Veterinário, Hotel, etc.',
   workingHours: 'SEG A SAB das 08:00 as 00:00',
-  site: 'wwww.fake.com.br'
+  site: 'https://www.facebook.com/petclubejardins/'
 },
 {
-  establishmentName: 'JOHNSONS',
-  address: 'FAKENU',
-  zipCode: 7113060,
-  phone: 1124404578,
+  establishmentName: 'Encrenquinhas Petshop',
+  address: 'Rua Alagoas, 184.',
+  zipCode: 01242000,
+  phone: 1132141485,
   type: 'PETSHOP',
-  services: 'VET, BANHO, TOSA',
-  workingHours: 'SEG A SAB das 08:00 as 19:00',
-  site: 'wwww.johns.com.br'
+  services: 'Veterinário, Hotel , etc.',
+  workingHours: 'SEG a SEX das 08:30 às 18:00. SAB das 08:30 às 17:00',
+  site: 'http://www.encrenquinhas.com.br/'
 },
-{
-  establishmentName: 'Habbibs',
-  address: 'AbuDan',
-  zipCode: 7134060,
-  phone: 1124443578,
-  type: 'HOTEL',
-  services: 'VET, ADESTRAMENTO, OUTROS',
-  workingHours: 'SEG A SAB das 08:00 as 00:00',
-  site: 'wwww.abu.com.br'
-},
-{
-  establishmentName: 'ClanPet',
-  address: 'Av.Mans',
-  zipCode: 7114360,
-  phone: 1124463578,
-  type: 'PETSHOP',
-  services: 'VET, ADESTRAMENTO, OUTROS',
-  workingHours: 'SEG A SAB das 09:00 as 20:00',
-  site: 'wwww.clapt.com.br'
-},
-{
-  establishmentName: 'FransXap',
-  address: 'Homesweethome',
-  zipCode: 71143060,
-  phone: 1122403578,
-  type: 'PETSHOP',
-  services: 'VET, ADESTRAMENTO, OUTROS',
-  workingHours: 'SEG A SAB das 10:00 as 22:00',
-  site: 'wwww.frans.com.br'
-}
 ];
 
 
