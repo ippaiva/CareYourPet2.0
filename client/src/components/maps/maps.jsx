@@ -43,15 +43,12 @@ export class MapContainer extends Component {
     // ...
   }
   render() {
-
-
-    const icon = { url: 'public/img/puppy(2).png'};
     return (
       <CurrentLocation centerAroundCurrentLocation google={this.props.google}>
         <Marker
         onClick={this.onMarkerClick} 
         name={"I'm Here!!"} 
-        icon={icon}/>
+        icon = {{url:'/img/dog-head.png'}}/>
    
         <Marker
           onClick={this.onMarkerClick}
@@ -63,19 +60,19 @@ export class MapContainer extends Component {
           name={"MASP SP"}
           position={{ lat: -23.560627, lng: -46.655796 }}
         />
-        <Marker />
+
         <Marker
           onClick={this.onMarkerClick}
           name={"COBASI"}
           position={{ lat: -23.54061, lng: -46.688789 }}
         />
-        <Marker />
+  
         <Marker
           onClick={this.onMarkerClick}
           name={"MAMAPET"}
           position={{ lat: -23.559218, lng: -46.664949 }}
         />
-        <Marker />
+
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
