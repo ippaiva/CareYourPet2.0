@@ -3,6 +3,19 @@ import axios from "axios";
 import Navbar from "../navbar/Navbar";
 
 class AddEstablishment extends Component {
+  constructor(props){
+      super(props);
+      this.state = { 
+        establishmentName: "",
+        address: "",
+        zipCode:"",
+        phone:"",
+        type:"",
+        services:"",
+        workingHours:"",
+        site:""
+      };
+
   constructor(props) {
     super(props);
     this.state = {
