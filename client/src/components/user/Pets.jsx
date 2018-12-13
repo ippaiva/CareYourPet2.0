@@ -12,9 +12,13 @@ class Pets extends Component {
 
   render() {
     return (
-      <div>
-        <Navbar />
+      <div >
+        <div>
+          <Navbar />
+        </div>
+
         <h1>PETS</h1>
+        
       </div>
     )
   }
