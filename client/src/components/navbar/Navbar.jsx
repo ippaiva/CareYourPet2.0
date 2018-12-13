@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AuthService from "../auth/auth-service";
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect } from "react-router-dom";
 
 class Navbar extends Component {
   constructor(props) {
@@ -13,16 +13,16 @@ class Navbar extends Component {
   setRedirect = () => {
     this.setState({
       redirect: true
-    })
-  }
+    });
+  };
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to='/' />
+      return <Redirect to="/" />;
     }
-  }
+  };
 
-  logout(){
+  logout() {
     this.service.logout().then(() => {
       this.props.fetchUser();
       this.setRedirect();
@@ -34,15 +34,21 @@ class Navbar extends Component {
       <div>
         {this.renderRedirect()}
         <aside className="menu">
-          <img src="img/care.png" alt="logo" width="100px" ></img>
+          <img src="img/care.png" alt="logo" width="100px" />
           <p className="menu-label">General</p>
           <ul className="menu-list">
-            <Link to='/home'>Home</Link>
-            <Link to='/profile'>Profile</Link>
-            <Link to='/pets'>My Pets</Link>
-            <Link to='/my-establishments'>My Establishments</Link>
+            <Link to="/home">Home</Link>
+            <Link to="/profile">Profile</Link>
+            <Link to="/pets">My Pets</Link>
+            <Link to="/my-establishments">My Establishments</Link>
           </ul>
-          <button onClick={this.logout} type="submit" name="logout" className="button is-warning is-small">Logout</button>
+          <button
+            onClick={this.logout}
+            type="submit"
+            name="logout"
+            className="button is-warning is-small">
+            Logout
+          </button>
         </aside>
       </div>
     );
