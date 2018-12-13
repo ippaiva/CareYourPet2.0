@@ -11,7 +11,6 @@ const establishmentSchema = new Schema({
   address: String,
   zipCode: Number,
   phone: Number,
-<<<<<<< HEAD
   type: { type: String, enum: ['PETSHOP', 'HOTEL', 'VETERINARIO', 'OUTROS'] },
   services: String,
   workingHours: String,
@@ -19,7 +18,6 @@ const establishmentSchema = new Schema({
 },
 {
   timestamps: true,
-=======
   type: {
     type: String,
     enum: ['PETSHOP', 'HOTEL', 'VETERINARIO', 'OUTROS']
@@ -29,7 +27,6 @@ const establishmentSchema = new Schema({
   site: String
 }, {
   timestamps: true
->>>>>>> 6b605dd94935776285561e4c78fad5f7874b79e6
 });
 
 const Establishment = mongoose.model('Establishment', establishmentSchema);
