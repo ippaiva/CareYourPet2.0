@@ -11,10 +11,10 @@ const establishmentSchema = new Schema({
   type: { type: String, enum: ['PETSHOP', 'HOTEL', 'VETERINARIO', 'OUTROS'] },
   services: [String],
   workingHours: String,
-  site: String
+  site: String,
 },
 {
-  timestamps: true
+  timestamps: true,
 });
 
 const Establishment = mongoose.model('Establishment', establishmentSchema);
