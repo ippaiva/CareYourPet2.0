@@ -11,8 +11,8 @@ class AddEstablishment extends Component {
         zipCode:"",
         phone:"",
         type:"",
-        services:[],
-        workingHours:[],
+        services:"",
+        workingHours:"",
         site:""
       };
   }

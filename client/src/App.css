@@ -49,7 +49,6 @@
 
 .sidebarContainer {
   display: flex;
-
 }
 
 .groupImage {
@@ -71,6 +70,10 @@
 .cardContainerHomeLog {
   display: flex;
   flex-wrap: wrap;
+}
+
+.homeLogTitle {
+  margin: 20px;
 }
 
 /* Card.jsx  */
