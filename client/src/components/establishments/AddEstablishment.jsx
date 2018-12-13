@@ -3,20 +3,6 @@ import axios from "axios";
 import Navbar from "../navbar/Navbar";
 
 class AddEstablishment extends Component {
-<<<<<<< HEAD
-  constructor(props){
-      super(props);
-      this.state = { 
-        establishmentName: "",
-        address: "",
-        zipCode:"",
-        phone:"",
-        type:"",
-        services:"",
-        workingHours:"",
-        site:""
-      };
-=======
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +15,6 @@ class AddEstablishment extends Component {
       workingHours: [],
       site: ""
     };
->>>>>>> 6b605dd94935776285561e4c78fad5f7874b79e6
   }
 
   handleFormSubmit = event => {
