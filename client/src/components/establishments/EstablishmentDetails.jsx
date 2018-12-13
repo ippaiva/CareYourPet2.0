@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
   componentDidMount() {
     this.service.getEstablishments(this.props.user._id)
       .then(res => {
+        console.log(res);
         if (!res.data.message) {
           this.setState({ establishments: res.data })
         } else {
@@ -38,8 +39,7 @@ import { Link } from 'react-router-dom';
                   <h3>Type: {establishment.type}</h3>
                   <h3>Services: {establishment.services}</h3>
                   <h3>Working Hours: {establishment.workingHours}</h3>
-                  <Link to={establishment.site}>Site: </Link>
-                  {/* <h3>Site:<a href = {establishment.site}/></h3> */}
+                  <Link to={() => establishment.site ? establishment.site : ''}>Site: </Link>
                 </div>
               </div>
               );
