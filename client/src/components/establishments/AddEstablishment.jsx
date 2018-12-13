@@ -3,7 +3,6 @@ import axios from "axios";
 import Navbar from "../navbar/Navbar";
 
 class AddEstablishment extends Component {
-
   constructor(props){
       super(props);
       this.state = { 
@@ -16,22 +15,7 @@ class AddEstablishment extends Component {
         workingHours:"",
         site:""
       };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      establishmentName: "",
-      address: "",
-      zipCode: "",
-      phone: "",
-      type: "",
-      services: [],
-      workingHours: [],
-      site: ""
-    };
-
-  }
-
+    }
   handleFormSubmit = event => {
     event.preventDefault();
     const EstablishmentName = this.state.establishmentName;
@@ -81,7 +65,7 @@ class AddEstablishment extends Component {
     console.log(this.state);
   };
 
-  render() {
+  render(){
     return (
       <div className="addEstabSidebarContainer">
         <div className="sidebar">
@@ -172,8 +156,7 @@ class AddEstablishment extends Component {
           </form>
         </div>
       </div>
-    );
-  }
-}
+    )};
+    }
 
 export default AddEstablishment;
