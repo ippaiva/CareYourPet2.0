@@ -9,7 +9,7 @@ const establishmentSchema = new Schema({
   zipCode: Number,
   phone: Number,
   type: { type: String, enum: ['PETSHOP', 'HOTEL', 'VETERINARIO', 'OUTROS'] },
-  services: [String],
+  services: String,
   workingHours: String,
   site: String,
 },

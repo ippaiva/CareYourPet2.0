@@ -1,5 +1,5 @@
 * {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -65,7 +65,7 @@
 .searchAndCard {
   display: flex;
   flex-direction: column;
-  width: 100%`;
+  width: 100%;
 }
 
 .cardContainerHomeLog {
@@ -73,12 +73,13 @@
   flex-wrap: wrap;
 }
 
+/* Card.jsx  */
+
 .cardContainer {
-  margin: 20px;
-  padding: 20px;
+  margin: 10px;
+  padding: 10px;
   outline: solid;
-  /* display: flex; */
-  /* flex-wrap: wrap; */
+  width: 30%;
 }
 
 .menu-list {
