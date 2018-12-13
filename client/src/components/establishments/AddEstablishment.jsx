@@ -15,20 +15,7 @@ class AddEstablishment extends Component {
         workingHours:"",
         site:""
       };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      establishmentName: "",
-      address: "",
-      zipCode: "",
-      phone: "",
-      type: "",
-      services: [],
-      workingHours: [],
-      site: ""
-    };
-  }
+    }
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -40,6 +27,7 @@ class AddEstablishment extends Component {
     const Services = this.state.services;
     const WorkingHour = this.state.workingHours;
     const Site = this.state.site;
+  }
 
     axios
       .post(
@@ -172,6 +160,5 @@ class AddEstablishment extends Component {
       </div>
     );
   }
-}
 
 export default AddEstablishment;
