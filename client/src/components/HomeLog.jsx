@@ -46,7 +46,7 @@ class HomeLog extends React.Component {
   
           <div className="searchAndCard">
             <input className="input is-small" type="text" placeholder="Search" />
-            <div>
+            <div className="cardContainerHomeLog">
             {
               this.state.establishments.map(establishment => {
                 return(

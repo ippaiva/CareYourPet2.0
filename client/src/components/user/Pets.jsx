@@ -12,12 +12,14 @@ class Pets extends Component {
 
   render() {
     return (
-      <div >
-        <div>
+      <div className="sidebarContainer">
+        <div className="sidebar">
           <Navbar />
         </div>
 
-        <h1>PETS</h1>
+        <div className="pets">
+          <h1 className="title is-1">My Pets</h1>
+        </div>
         
       </div>
     )

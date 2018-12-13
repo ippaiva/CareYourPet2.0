@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = (props) => {
     return (
-       <div className="host">
+       <div className="cardContainer">
         <div>
            <h1>{props.establishmentName}</h1>
            <p>{props.type}</p>

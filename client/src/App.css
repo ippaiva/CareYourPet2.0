@@ -1,5 +1,5 @@
 * {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -68,10 +68,17 @@
   width: 600px;
 }
 
-.host {
+.cardContainerHomeLog {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardContainer {
   margin: 20px;
   padding: 20px;
   outline: solid;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
 }
 
 .menu-list {
@@ -110,7 +117,7 @@
 
 
 .navbar {
-  height: 10%;
+  height: 20px;
   position: fixed;
   margin: 0;
   padding: 0;
@@ -201,6 +208,37 @@
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 25px;
   padding: 20px;
-  width: 40%;
- 
+  width: 40%; 
+}
+
+/* Signup.jsx */
+
+.signupContainer {
+  display: flex;
+  background-image: url('/img/redWall.jpg');
+  background-size: cover;
+}
+
+.signupBack {
+  margin: auto;
+  margin-top: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  padding: 10px;
+  width: 45%;
+}
+
+.signupImage {
+  margin: auto;
+  width: 45%;
+
+}
+
+/* Pets.jsx */
+
+.pets {
+  background-image: url('/img/cats.jpg');
+  background-size: cover;
+  height:680px;
+  width: 100%;
 }

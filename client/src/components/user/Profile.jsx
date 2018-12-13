@@ -5,14 +5,14 @@ class Profile extends Component {
   constructor(props){
     super(props);
     this.state = {
-      username: '',
-      password: '',
-      name: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      zipcode: '',
-      address: ''
+      username: this.props.loggedInUser.username,
+      password: this.props.loggedInUser.password,
+      name: this.props.loggedInUser.name,
+      lastName: this.props.loggedInUser.lastName,
+      email: this.props.loggedInUser.email,
+      phone: this.props.loggedInUser.phone,
+      zipcode: this.props.loggedInUser.zipcode,
+      address: this.props.loggedInUser.address
     };
   }
 
@@ -24,13 +24,12 @@ class Profile extends Component {
 }
 
   render() {
+    console.log(this.props.loggedInUser)
     return (
       <div className="sidebarContainerProfile">
         <div className="sidebar">
           <Navbar />
-    
         </div>
-    
         <div className="formContainerOutter">
           <div className="formContainer">
             <form className="form" method="get">
