@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./navbar/Navbar";
 import Card from "./establishments/Card";
-import Maps from "./maps/Maps";
+import Maps from "./maps/maps";
 import Service from "./auth/auth-service";
 
 class HomeLog extends React.Component {
