@@ -16,7 +16,6 @@ class AddEstablishment extends Component {
         site:""
       };
     }
-
   handleFormSubmit = event => {
     event.preventDefault();
     const EstablishmentName = this.state.establishmentName;
@@ -67,7 +66,7 @@ class AddEstablishment extends Component {
     console.log(this.state);
   };
 
-  render() {
+  render(){
     return (
       <div className="addEstabSidebarContainer">
         <div className="sidebar">
@@ -158,7 +157,7 @@ class AddEstablishment extends Component {
           </form>
         </div>
       </div>
-    );
-  }
+    )};
+    }
 
 export default AddEstablishment;
