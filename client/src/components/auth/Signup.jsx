@@ -78,7 +78,7 @@ class Signup extends Component {
               <InputText
                 label="Name:"
                 fieldName="name"
-                placeHolder="Digite seu nome"
+                placeHolder="Write "
                 value={this.state.name}
                 handleChange={this.handleChange}
               />

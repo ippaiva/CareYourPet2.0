@@ -25,7 +25,7 @@ class Login extends Component {
         this.setRedirect();
         this.props.fetchUser();
       })
-      .catch(error => console.log(error));
+      .catch(error => alert('The email and/or password you entered did not match our records. Please double-check and try again.'));
   };
 
   setRedirect = () => {

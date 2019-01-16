@@ -49,7 +49,7 @@ class Profile extends Component {
     
       </div>
     )
-  }
+}
 };
 
 export default Profile;
