@@ -6,7 +6,7 @@ import NavbarNotLoggedIn from "./navbar/NavbarNotLoggedIn";
 class HomeNoUser extends Component {
   render() {
     return (
-      <div className="HomeNoUser">
+      <div className="HomeNoUser fullPageImg">
         <NavbarNotLoggedIn />
         <div className="outterDiv">
           <h1 className="title is-1">Care For Your Pet</h1>

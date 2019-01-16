@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import ReactDOM from "react-dom";
 
 const mapStyles = {
@@ -9,7 +9,7 @@ const mapStyles = {
   }
 };
 
-export class CurrentLocation extends React.Component {
+export class CurrentLocation extends Component {
   constructor(props) {
     super(props);
 
@@ -22,6 +22,8 @@ export class CurrentLocation extends React.Component {
     };
   }
 
+  // Current Location should appear as soon as Map is loaded, therefore we need to check if it is loaded and also check if the browser's current location is provided and recenter the map to it
+
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.google !== this.props.google) {
       this.loadMap();
@@ -30,6 +32,8 @@ export class CurrentLocation extends React.Component {
       this.recenterMap();
     }
   }
+
+  // Will get called when the currentLocation in the component's state is updated and uses .panTo to change the map center
 
   recenterMap() {
     const map = this.map;
@@ -43,6 +47,8 @@ export class CurrentLocation extends React.Component {
       map.panTo(center);
     }
   }
+
+  // When the map is already laoded this function will set a callback to fetch the current location
 
   componentDidMount() {
     if (this.props.centerAroundCurrentLocation) {

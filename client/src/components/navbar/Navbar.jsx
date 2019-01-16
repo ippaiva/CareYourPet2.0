@@ -25,6 +25,7 @@ class Navbar extends Component {
   logout() {
     this.service.logout().then(() => {
       this.props.fetchUser();
+      console.log(this.props.fetchUser());
       this.setRedirect();
     });
   }
@@ -33,9 +34,9 @@ class Navbar extends Component {
     return (
       <div>
         {this.renderRedirect()}
-        <aside className="menu">
+        <aside className="">
           <img src="img/care.png" alt="logo" width="100px" />
-          <p className="menu-label">General</p>
+          <p className="">General</p>
           <ul className="menu-list">
             <Link to="/home">Home</Link>
             <Link to="/profile">Profile</Link>

@@ -27,9 +27,9 @@ class Profile extends Component {
     console.log(this.props.loggedInUser)
     return (
       <div className="sidebarContainerProfile">
-        <div className="sidebar">
+        {/* <div className="sidebar"> */}
           <Navbar />
-        </div>
+        {/* </div> */}
         <div className="formContainerOutter">
           <div className="formContainer">
             <form className="form" method="get">

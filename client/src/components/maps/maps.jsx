@@ -12,15 +12,18 @@ export class MapContainer extends Component {
     };
   }
 
+  // Used to show the InfoWindow, which gives us the ability for a pop-up window showing details of the clicked place/marker
+
   onMarkerClick = (props, marker, e) => {
     console.log(props, marker);
-
     this.setState({
-      selectedPlace: props,
+      showingInfoWindow: true,
       activeMarker: marker,
-      showingInfoWindow: true
+      selectedPlace: props
     });
   };
+
+  // Used for closing the InfoWindow once a user clicks on the close button
 
   onClose = props => {
     if (this.state.showingInfoWindow) {
@@ -43,7 +46,10 @@ export class MapContainer extends Component {
   }
   render() {
     return (
-      <CurrentLocation centerAroundCurrentLocation google={this.props.google}>
+      <CurrentLocation
+        centerAroundCurrentLocation
+        google={this.props.google}>
+        
         <Marker
           onClick={this.onMarkerClick}
           name={"I'm Here!!"}

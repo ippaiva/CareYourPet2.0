@@ -35,7 +35,7 @@ class HomeLog extends React.Component {
     return (
       <div className="sidebarContainer">
         <div className="sidebar">
-          <Navbar fetchUser={this.props.fetchUser} />
+          <Navbar fetchUser={this.props.fetchUser} className="loggedNavbar"/>
         </div>
 
         <div className="groupImage">
