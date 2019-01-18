@@ -18,7 +18,8 @@ class Pets extends Component {
         </div>
 
         <div className="pets">
-          <h1 className="title is-1">My Pets</h1>
+          <h1 className="title is-1 has-text-warning petsTitle">My Pets</h1>
+          <h2 className="subtitle is-3 has-text-warning">(Work in progress...)</h2>
         </div>
         
       </div>

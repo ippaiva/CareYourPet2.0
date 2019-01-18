@@ -74,7 +74,7 @@ class AddEstablishment extends Component {
         </div>
 
         <div className="addEstabFormContainer">
-          <h1 className="title is-1">Add a New Establishment</h1>
+          <h1 className="title is-1 has-text-white addEstabH1">Add a New Establishment</h1>
 
           <form onSubmit={this.handleFormSubmit} className="addEstabForm">
             <label>Establishment Name: </label>
